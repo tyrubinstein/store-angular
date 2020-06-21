@@ -1,0 +1,37 @@
+<p>find-cloth-application works!</p>
+<div class="searchBox">
+
+  <input class="searchInput" type="text" name="" placeholder="Search">
+  <button class="searchButton" href="#">
+    <i class="material-icons">
+      search
+    </i>
+  </button>
+</div>
+
+<!-- <div class="box box1">
+    <div class="oddboxinner"> למציאת בגד חייגו:05555555 
+        ואמרו את שם הבגד שברצונכם למצוא
+    </div>
+</div>
+<div class="oddboxinner"></div> -->
+
+<div class="container">
+  <h2>החנויות שהזמינו את הבגד<small>ממוין לפי מרחק</small></h2>
+  <ul *ngFor="let item of getStoresThtHaveTheCloth() let i=index" class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">שם החנות</div>
+      <div class="col col-2">כתובת</div>
+      <div class="col col-3">טלפון</div>
+      <div class="col col-4">בעל החנות</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1" data-label="שם החנות">{{item.StoreName}}</div>
+      <div class="col col-2" data-label="כתובת">{{item.Address+"    "+item.City}}</div>
+      <div class="col col-3" data-label="טלפון">{{item.cellOftheStore}}</div>
+      <div class="col col-4" data-label="בעל החנות">{{item.ManagerName}}</div>
+     
+
+    </li>
+  </ul>
+</div>

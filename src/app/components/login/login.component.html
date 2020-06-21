@@ -1,0 +1,31 @@
+<form (ngSubmit)="submitForm(loginForm)" #loginForm="ngForm">
+  <div class='bold-line'></div>
+  <div class='container'>
+    <div class='window'>
+      <div class='overlay'></div>
+      <div class='content'>
+        <div class='welcome'>Hello There!</div>
+        <div class='subtitle'>We're almost done. Before using our services you need to create an account.</div>
+        <a routerLink="/register-component" routerLinkActive="active">עדיין לא רשום? הרשם כאן</a>     
+         <p  *ngIf="tryToSubmit&&!loginForm.valid" class="alert">לא ניתן לשלוח כל עוד הטופס לא תקין!</p>
+        <div class='input-fields'>
+          <input type='email' pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name=Email required
+            #myemail="ngModel" [(ngModel)]="loginmodel.Email" placeholder='מייל' class='input-line full-width' />
+          <p class="alert" *ngIf="!myemail.valid && myemail.touched">The email is required</p>
+          <div *ngIf="myemail.hasError('pattern')">Email format should be <small><b>joe@abc.com</b></small></div>
+          <p *ngIf="noUser">אין כזה משתמש</p>
+          <input type='password' name=PasswordUser required minlength="6" #mypassword="ngModel"
+            [(ngModel)]="loginmodel.PasswordUser" placeholder='סיסמא' class='input-line full-width' />
+          <p class="alert" *ngIf="!mypassword.valid && mypassword.touched ">!שדה חובה</p>
+          <p *ngIf="mypassword.errors?.minlength">לפחות 6 תווים נדרשים</p>
+          <p *ngIf="wrongPassword">הסיסמא שגויה</p>
+        </div>
+        <div><button type="submit"  class='ghost-round full-width'>כניסה</button>
+          <input type="button" value="שכחתי סיסמא" class="ghost-round full-width" (click)="forgetPassword()"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<pre>{{loginForm.valid}}</pre>
+<pre>{{tryToSubmit}}</pre>
