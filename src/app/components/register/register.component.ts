@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '../../model/store'
 import { RegisterService } from '../../services/Register-service'
 import { FormsModule, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,7 +12,7 @@ export class RegisterComponent implements OnInit {
   formSubmited = false//האם הפורם נשלח
   registermodel = new Store("", "", "", "", "", "", "", "");
   tryToSubmit = false
-  constructor(private registerService: RegisterService) { }
+  constructor(private registerService: RegisterService ,private router:Router) { }
 
   ngOnInit(): void {
     
@@ -20,13 +21,15 @@ export class RegisterComponent implements OnInit {
   addRegister(myname, mystoreName, myphone, storePhone, myaddres, myemail, mypassword, mycity) {
   }
   submitForm(f: NgForm) {
+    debugger
     if (f.valid) {
-      this.registerService.addStore(new Store(this.registermodel.ManagerName, this.registermodel.StoreName, this.registermodel.City, this.registermodel.cellOftheStore, this.registermodel.Cell, this.registermodel.Address, this.registermodel.Email, this.registermodel.PasswordUser))
+      this.registerService.addStore(this.registermodel)
         .subscribe(
-          (response) => console.log(response),
+          (response) => alert(response),
           (error) => console.log(error)
         );
       this.formSubmited = true
+      this.router.navigate(["home-page-component"])
     }
     else {
         this.tryToSubmit = true

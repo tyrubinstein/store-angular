@@ -15,11 +15,10 @@ import { ListOfComponent } from './components/list-of/list-of.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpResponse } from '@angular/common/http';
 import {RegisterService} from './services/Register-service'
-import { from } from 'rxjs';
 import {AuthGuard} from './auth.guard';
 import{ AuthService}from'./services/auth.service';
+
 
 @NgModule({
   declarations: [

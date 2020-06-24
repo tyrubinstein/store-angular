@@ -15,13 +15,13 @@
     <div id="7958441" class="CardRow ArrowDown KorotFile Point Open" tabindex="0" data-font-size="12"
       data-font-size-type="px">
       <div id="wrapDeatils" data-font-size="12" data-font-size-type="px">
-        <div class="CardHeader" data-font-size="14" data-font-size-type="px">item.billName</div>
-        <div data-font-size="12" data-font-size-type="px"> item.billDate</div>
+        <div class="CardHeader" data-font-size="14" data-font-size-type="px">{{item.BillPath}}</div>
+        <div data-font-size="12" data-font-size-type="px">{{item.BilDate}}</div>
       </div>
 
       <div class="Transition KorotOpt stopPropagation" data-font-size="12" data-font-size-type="px">
         <input type="button" value="צפה בקובץ" class="bttn" onclick="location.href=item.path">
-        <input (click)="delete()" type="button" value="מחק קובץ" class="bttn red" />
+        <input  type="button" value="מחק קובץ" class="bttn red" />
       </div>
     </div>
 
@@ -49,3 +49,6 @@
 
     </div>
   </form> -->
+
+  <!-- <input #fileInput type="file"/>
+  <button (click)="addFile()">Add</button> -->

@@ -6,9 +6,7 @@ import { AuthService } from "./services/auth.service";
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private authservice:AuthService, private router:Router) {
-    
-  })
+  constructor(private authservice:AuthService, private router:Router) {}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
