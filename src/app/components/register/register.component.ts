@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   formSubmited = false//האם הפורם נשלח
-  registermodel = new Store("", "", "", "", "", "", "", "");
+  registermodel = new Store;
   tryToSubmit = false
   constructor(private registerService: RegisterService ,private router:Router) { }
 

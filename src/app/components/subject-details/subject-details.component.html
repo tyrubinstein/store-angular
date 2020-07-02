@@ -1,0 +1,77 @@
+<!-- //הצגת הנושא -->
+
+<div dir="rtl" id="subject" class="card">
+    <div id="subject">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-lg-9" id="allTheCard">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                            <h1>{{currentSubject.SubjectName}}</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-lg-2">
+                            <P>{{currentSubject.StoreName}}</P>
+                        </div>
+                        <div class="col-md-3 col-lg-3">
+                            <p>{{currentSubject.DatetimeOfWriting}}</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12">
+                                <div class="contentOfTheMessage">
+                                    <span id="textOnTheSubject">{{currentSubject.Content}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <hr />
+                        <div class="col-md-5 col-lg-5">
+                            <p>{{currentSubject.latestDateOfAnswer}} תגובה אחרונה</p>
+                        </div>
+                        <div class="col-md-3 col-lg-3">
+                            <input type="button"
+                                (click)="PostToAnswerSubject('post')"
+                                value="תגובה">
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<Ul *ngFor="let postt of GetlistOfPost(); let i=index; "let time='SometimeAgo(postt.DatetimeOfWriting)'>
+    <li>
+        <hr>
+        <div id="post">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 col-lg-2">
+                        
+                        <P >{{postt.StoreName}}</P>
+                    </div>
+                    <div class="col-md-3 col-lg-3">
+                        <p>{{postt.DatetimeOfWriting}}</p>
+                    </div>
+                    <div class="col-md-2 col-lg-2">
+                        <p>{{postt.numOfVotes}}</p>
+                        <P >{{postt.time}}</P>
+                    </div>
+                </div>
+            </div>
+            <div class="contentOfTheMessage">
+                <span id="textOnTheSubject">{{postt.ContentText}}</span>
+            </div>
+           
+        </div>
+    </li>
+</Ul>
+ <!--  <div class="container">
+                <div class="row">
+                        <div class=" col-md-1 col-lg-1">
+                            <p>{{postt.numOfVotes}} מספר ההצבעות</p>
+                        </div>
+            </div> -->

@@ -1,6 +1,6 @@
 
 export class Store {
-    // StoreID: number
+    StoreID: number
     StoreName: string
     Address: string
     City: string
@@ -9,16 +9,7 @@ export class Store {
     Email: string
     PasswordUser: string
     cellOftheStore: string
-    constructor(ManagerName: string, address: string, City: string, storeName: string,  Cell: string,cellOftheStore: string, email: string, password: string) {
-        this.Address = address;
-        this.Email = email;
-        this.City = City
-        this.PasswordUser = password;
-        this.Cell = Cell;
-        this.cellOftheStore = cellOftheStore;
-        this.StoreName = storeName;
-        this.ManagerName = ManagerName;
-    }
+  
 }
 export class Login {
     PasswordUser: string

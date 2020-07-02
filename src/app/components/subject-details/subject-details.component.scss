@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+  body,p,h1,span,button,.card
+{
+    direction: rtl;
+}
+body{background-image: url('/assets/images/1111.jpg');
+}
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+.pull-right {
+    float: left!important;
+}
+.btnNewSubject {border-radius: 12px;}
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 100%;
+        text-align: right;
+
+       }
+      
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+      
+      .container {
+        padding: 2px 4px;
+      }
+    #allTheCard
+    {
+direction: rtl;  
+margin-right: 2px;  }
+        .contentOfTheMessage {
+            transition: 0.1s;
+            width: 70%;
+            text-align: right;      
+            border-radius: 5px;
+            border: 2px solid rgb(241, 239, 239);;
+            padding-right: 2px;
+          }
+      
+  
+ 

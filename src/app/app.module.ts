@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
@@ -18,6 +17,12 @@ import { HttpClientModule } from '@angular/common/http';
 import {RegisterService} from './services/Register-service'
 import {AuthGuard} from './auth.guard';
 import{ AuthService}from'./services/auth.service';
+import { ListOfSubjectsComponent } from './components/list-of-subjects/list-of-subjects.component';
+import { PostService } from './services/post.service';
+import { SubjectOfForumService } from './services/subjectOfForum.service';
+import { SubjectDetailsComponent } from './components/subject-details/subject-details.component';
+import { SetPostAndSubjectComponent } from './components/set-post-and-subject/set-post-and-subject.component';
+import { TimeAgoPipe } from './time-ago.pipe';
 
 
 @NgModule({
@@ -32,13 +37,18 @@ import{ AuthService}from'./services/auth.service';
     ForumComponent,
     ListOfComponent,
     SearchBoxComponent,
-    TopMenuComponent
+    TopMenuComponent,
+    ListOfSubjectsComponent,
+    SubjectDetailsComponent,
+    SetPostAndSubjectComponent,
+    TimeAgoPipe,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,FormsModule,HttpClientModule
   ],
-  providers: [RegisterService,AuthGuard,AuthService],
+  providers: [RegisterService,AuthGuard,AuthService,PostService,SubjectOfForumService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
