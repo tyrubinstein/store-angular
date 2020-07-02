@@ -25,17 +25,6 @@ export class RegisterService {
   }
   addStore(register:Store) {//הוספת משתמש
     debugger
-//     const myheader = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-// let body = new HttpParams();
-// body = body.set('StoreName', register.StoreName);
-// body = body.set('Address', register.Address);
-// body = body.set('City', register.City);
-// body = body.set('ManagerName', register.ManagerName);
-// body = body.set('Cell', register.Cell);
-// body = body.set('Email', register.Email);
-// body = body.set('PasswordUser', register.PasswordUser);
-// body = body.set('cellOftheStore', register.cellOftheStore);
-
     return this.http.post(this.url+"/AddStore", register);
 
   }

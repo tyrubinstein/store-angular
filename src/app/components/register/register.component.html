@@ -12,10 +12,10 @@
             <p class="alert" *ngIf="!myname.valid && myname.touched">!שדה חובה</p>
             <input type='text' name=StoreName required #mystoreName="ngModel" [(ngModel)]="registermodel.StoreName" placeholder='שם חנות' class='input-line full-width'/>
             <p class="alert" *ngIf="!mystoreName.valid && mystoreName.touched">!שדה חובה</p>
-            <input type='string' name=Cell required minlength="10" #myphone="ngModel" [(ngModel)]="registermodel.Cell" placeholder='טלפון' class='input-line full-width'/>
+            <input type='string' name=Cell required minlength="9" #myphone="ngModel" [(ngModel)]="registermodel.Cell" placeholder='טלפון' class='input-line full-width'/>
             <p class="alert" *ngIf="!myphone.valid && myphone.touched">!שדה חובה</p>
             <p *ngIf="myphone.errors?.minlength">לפחות 9 תווים נדרשים</p>
-            <input type='string' name=cellOftheStore required minlength="10" #storePhone="ngModel" [(ngModel)]="registermodel.cellOftheStore" placeholder='טלפון בחנות' class='input-line full-width'/>
+            <input type='string' name=cellOftheStore required minlength="9" #storePhone="ngModel" [(ngModel)]="registermodel.cellOftheStore" placeholder='טלפון בחנות' class='input-line full-width'/>
             <p class="alert" *ngIf="!storePhone.valid && storePhone.touched">!שדה חובה</p>
             <p *ngIf="storePhone.errors?.minlength">לפחות 9 תווים נדרשים</p>
             <input type='string' name=Address required #myaddres="ngModel" [(ngModel)]="registermodel.Address" placeholder='כתובת' class='input-line full-width'/>
@@ -36,5 +36,6 @@
       </div>
     </div>
     </form>
-<pre>{{myform.valid}}</pre>
 
+
+    

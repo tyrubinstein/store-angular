@@ -9,16 +9,7 @@ export class Store {
     Email: string
     PasswordUser: string
     cellOftheStore: string
-    constructor(ManagerName: string, address: string, City: string, storeName: string,  Cell: string,cellOftheStore: string, email: string, password: string) {
-        this.Address = address;
-        this.Email = email;
-        this.City = City
-        this.PasswordUser = password;
-        this.Cell = Cell;
-        this.cellOftheStore = cellOftheStore;
-        this.StoreName = storeName;
-        this.ManagerName = ManagerName;
-    }
+   
 }
 export class Login {
     PasswordUser: string
@@ -29,25 +20,6 @@ export class Login {
     }
 
 }
-export class FoundStores {
-    StoreName: string
-    Address: string
-    City: string
-    ManagerName: string
-    cellOftheStore: string
-    constructor(StoreName: string,
-        Address: string,
-        City: string,
-        ManagerName: string,
-        cellOftheStore: string,
-    ) {
-        this.Address = Address
-        this.City = City
-        this.ManagerName = ManagerName;
-        this.StoreName = StoreName;
-        this.cellOftheStore = cellOftheStore;
-    }
-}
 
 
 export class StoresThatHaveTheCloth {
@@ -56,17 +28,6 @@ export class StoresThatHaveTheCloth {
     City: string
     ManagerName: string
     cellOftheStore: string
-    constructor(StoreName: string,
-        Address: string,
-        City: string,
-        ManagerName: string,
-        cellOftheStore: string) {
-        this.Address = Address;
-        this.City = City;
-        this.ManagerName = ManagerName;
-        this.StoreName = StoreName;
-        this.cellOftheStore = cellOftheStore;
-    }
 
 }
 

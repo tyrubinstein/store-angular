@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FoundStores}from '../../model/store'
+import {StoresThatHaveTheCloth}from '../../model/store';
+import {  SearcCloth} from "../../model/cloth";
+import {FindClothService } from "../../services/find-cloth.service";
 @Component({
   selector: 'app-find-cloth-application',
   templateUrl: './find-cloth-application.component.html',
@@ -7,16 +9,27 @@ import {FoundStores}from '../../model/store'
 })
 export class FindClothApplicationComponent implements OnInit {
  
-  foundStores:FoundStores;
-  
-  constructor() { }
+  foundStores;
+  SearchClothModel:SearcCloth;
+  constructor(private findclothservice:FindClothService) { }
 
   ngOnInit(): void {
   }
+  SearchCloth(){
+    this.findclothservice.getAllTHeStoreThatHaveTheCloth(this.SearchClothModel).subscribe(
+      (response:StoresThatHaveTheCloth)=>{
+        if (response[0]){
+         this.foundStores=response;
 
+        }
+        else{
+          alert("אין לשום חנות את הבגד");
+        }
+      },
+      (error)=>{console.log(error)})
+  }
   getStoresThtHaveTheCloth(){
-    this.foundStores=new FoundStores("פמילילנד","מנחם בגין","פתח תקוה","רחל רובינשטיין","055555");
-    return [this.foundStores]
+    return this.foundStores
   }
 
 }
