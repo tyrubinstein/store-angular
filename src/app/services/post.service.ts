@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class PostService {
+ 
   private url = environment.API_URL+"/Post";
   constructor(private http: HttpClient) { }
   
@@ -20,7 +21,10 @@ export class PostService {
    addPost(p: Post) {
     return this.http.post(this.url + "/AddPost", p)
   }
- 
+  //שינוי מספר ההצבעות ב-1
+  changevotes(numOfVotes:number,PostID:number) {
+    return this.http.get<number>(this.url + "/changevotes?PostID="+PostID+"&&numOfVotes="+numOfVotes);
+  }
   // public getTheCodOfSubjectOftheLatestPost(): Observable<number> 
   // { 
   // //תחזיר את הקוד של הנושא של הפוסט הכי אחרון שנכתב 

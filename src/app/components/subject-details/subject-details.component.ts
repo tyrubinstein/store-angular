@@ -5,11 +5,13 @@ import { PostService } from 'src/app/services/post.service';
 import { SubjectOfForum } from 'src/app/model/subjectOfForum';
 import { StoreService } from 'src/app/services/store.service';
 import { promise } from 'protractor';
+import { TimeAgoPipe } from 'src/app/time-ago.pipe';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-subject-details',
   templateUrl: './subject-details.component.html',
-  styleUrls: ['./subject-details.component.scss']
+  styleUrls: ['./subject-details.component.scss'],
 })
 export class SubjectDetailsComponent implements OnInit {
   currentSubject: SubjectOfForum;//הנושא הנוכחי
@@ -31,13 +33,13 @@ temp:string
     
     this.firstIdOfSubject()
       .then(() => this.currentSubjectID = this.chooserIdBegin)
-      .then(() => this.getSubjectByID(this.currentSubjectID))
+      .then(() => this.getSubjectByIDPromise(this.currentSubjectID)) 
+      .then( () => this.GetlatestDateOfPostBySubjectId())
       .then(() =>  this.getNameStoreById(this.currentSubject.StoreID))
       .then(() => this.currentSubject.StoreName=this.nameOfStore)
-      .then(() => this.getListOfPostById(this.chooserIdBegin))
+      .then(() => this.getListOfPostById(this.currentSubject.SubjectID))
   }
   firstIdOfSubject(): Promise<number> {
-    
     let promise = new Promise<number>((resolve, reject) => {
 
       this.SubjectService.GetIDOfNewestSubject()
@@ -58,6 +60,7 @@ temp:string
   }
 
   getlistofpostpromise(idsubject): Promise<Post[]> {
+    
     let promise = new Promise<Post[]>((resolve, reject) => {
       this.PostService.GetListOfPostByIdSubject(idsubject)
         .toPromise()
@@ -77,10 +80,9 @@ temp:string
   }
  
   getNameStoreById(id:number): Promise<string> {
-
+    
     let promise = new Promise<string>((resolve, reject) => {
-      this.StoreService.GetStoreNameById(id) 
-         
+      this.StoreService.GetStoreNameById(id)    
       .toPromise()
         .then(
           res => {
@@ -97,7 +99,28 @@ temp:string
     });
     return promise;
   }
-    getSubjectByID(SubjectID: number): Promise<SubjectOfForum> {
+ 
+      GetlatestDateOfPostBySubjectId(): Promise<Date> {
+      
+        let promise = new Promise<Date>((resolve, reject) => {
+          this.SubjectService.GetlatestDateOfPostBySubjectId(this.currentSubject.SubjectID)    
+          .toPromise()
+            .then(
+              res => {
+                // Success
+                this.currentSubject.latestDateOfAnswer  = res;
+    
+                resolve();
+              },
+              msg => {
+                // Error
+                reject(msg);
+              }
+            );
+        });
+        return promise;
+      }
+    getSubjectByIDPromise(SubjectID: number): Promise<SubjectOfForum> {
       
     let promise = new Promise<SubjectOfForum>((resolve, reject) => {
       this.SubjectService.getSubjectByID(SubjectID)    
@@ -123,41 +146,34 @@ temp:string
       .then(
         () => this.qtyOfAnswers = this.listOfPost.length)
         .then(
-         () =>   () => this.listOfPost.forEach(element => {
-           this.getNameStoreById(element.StoreID).then(()=>element.StoreName=this.nameOfStore)     
+          () => this.listOfPost.forEach(element => {
+           this.getNameStoreById(element.StoreID).then(()=>element.StoreName=this.nameOfStore) ;    
   }));
    return this.listOfPost;
   }
   changeCurrentSubject(idsubject: number) {
-    this.getSubjectByID(idsubject);
+    this.getSubjectByIDPromise(idsubject)
+    .then(() => this.getNameStoreById(this.currentSubject.StoreID))
+    .then(() => this.GetlatestDateOfPostBySubjectId());
     this.getListOfPostById(idsubject);
+    this.currentSubjectID=idsubject;
   }
-  SometimeAgo(dateTime:Date):string{
-    var differenceyear = new Date().getFullYear() - new Date(dateTime).getFullYear();
-    var differencemonth = new Date().getFullYear() - new Date(dateTime).getFullYear();
-  var differencedays = new Date().getFullYear() - new Date(dateTime).getFullYear();
-  var differencehours = new Date().getFullYear() - new Date(dateTime).getFullYear();
-var describeTime="";
-  if(differenceyear>1)
-  describeTime=""
-    // this.temp=Date.now()-dateTime.get();
-return "";
-
-
-  }
-
+  
   GetlistOfPost() { return this.listOfPost; }
  
    PostToAnswerSubject(PostOrsubject: string) {
     this.newSubjectOrPost(PostOrsubject);
    }
-
-  //   this.openWritePost = true;
-  // }
+votes(numOfVotes:number,postId:number){
+  debugger
+  this.PostService.changevotes(postId,numOfVotes);
+  
+}
+  
   
   send() {
     alert("hello");
-    // this.p=SubjectID,AnswerTo
+   
 
   }
   B() { }
@@ -165,6 +181,4 @@ return "";
   cancel() { }
 
 }
- // getNameStoreById(id:number):string
-  // {   this.StoreService.GetStoreNameById(id).subscribe((data: string) => this.nameOfStore = data);
-  // return this.nameOfStore}
+ 

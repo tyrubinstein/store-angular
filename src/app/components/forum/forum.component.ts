@@ -52,7 +52,8 @@ export class ForumComponent implements OnInit {
     return this.GetCurrentId.bind(this);
   }
   GetCurrentId():number {
-    return this.child.currentSubjectID
+    
+    return this.child.currentSubject.SubjectID;
   }
 
 

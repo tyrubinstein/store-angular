@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~9.1.0",
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
+    "angular2-token": "^0.2.0",
+    "moment": "^2.27.0",
     "ng2-file-upload": "^1.4.0",
     "ngx-bootstrap": "^5.6.1",
     "rxjs": "~6.5.4",

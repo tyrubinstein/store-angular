@@ -5,7 +5,7 @@ export class Post {
       ContentText:string; 
       DatetimeOfWriting:Date;
       SubjectID:number;
-      qtyOfVotes:number;
+      numOfVotes:number;
       StoreName:string;
       latestDateOfAnswer:Date;
       ifWantUpdate:boolean;

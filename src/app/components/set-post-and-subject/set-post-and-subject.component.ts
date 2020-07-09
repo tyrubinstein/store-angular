@@ -62,7 +62,7 @@ this.submitNavigate="Subject"
   );
   }
   submitPost(ifWantUpdate:boolean,Content:string)
-  {debugger
+  {
     this.buildPost.SubjectID=this.GetCurrentId(); 
     this.buildPost.StoreID=1000;
     this.buildPost.ContentText=Content;

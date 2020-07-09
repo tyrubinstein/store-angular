@@ -15,7 +15,7 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import {RegisterService} from './services/Register-service'
-import {AuthGuard} from './auth.guard';
+import {AuthGuard} from './guard/auth.guard';
 import{ AuthService}from'./services/auth.service';
 import { ListOfSubjectsComponent } from './components/list-of-subjects/list-of-subjects.component';
 import { PostService } from './services/post.service';

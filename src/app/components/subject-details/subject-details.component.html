@@ -1,77 +1,68 @@
 <!-- //הצגת הנושא -->
+<div dir="rtl">
+    <div class="container">
+        <div class="row">
+            <div dir="rtl" class="col-md-6 col-lg-6" class="speech-bubble-subject">
+                <div dir="rtl" class="row">
 
-<div dir="rtl" id="subject" class="card">
-    <div id="subject">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9 col-lg-9" id="allTheCard">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-6">
-                            <h1>{{currentSubject.SubjectName}}</h1>
-                        </div>
+                    <div class="col-md-2 col-lg-2 left">
+                        <P>{{currentSubject.StoreName}}</P>
                     </div>
-                    <div class="row">
-                        <div class="col-md-2 col-lg-2">
-                            <P>{{currentSubject.StoreName}}</P>
-                        </div>
-                        <div class="col-md-3 col-lg-3">
-                            <p>{{currentSubject.DatetimeOfWriting}}</p>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 col-lg-12">
-                                <div class="contentOfTheMessage">
-                                    <span id="textOnTheSubject">{{currentSubject.Content}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <hr />
-                        <hr />
-                        <div class="col-md-5 col-lg-5">
-                            <p>{{currentSubject.latestDateOfAnswer}} תגובה אחרונה</p>
-                        </div>
-                        <div class="col-md-3 col-lg-3">
-                            <input type="button"
-                                (click)="PostToAnswerSubject('post')"
-                                value="תגובה">
-                        </div>
-                        
+                    <div class="col-md-3 col-lg-3 ">
+                        <p>{{currentSubject.DatetimeOfWriting}}</p>
+                    </div>
+                    <div class="col-1-offset col-md-6 col-lg-6">
+                        <h1>{{currentSubject.SubjectName}}</h1>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
 
+                <div class="contentOfTheMessage">
+                    <span id="textOnTheSubject">{{currentSubject.Content}}</span>
+                </div>
+                <br />
 
-<Ul *ngFor="let postt of GetlistOfPost(); let i=index; "let time='SometimeAgo(postt.DatetimeOfWriting)'>
-    <li>
-        <hr>
-        <div id="post">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2 col-lg-2">
-                        
-                        <P >{{postt.StoreName}}</P>
+                <div dir="rtl" class="row">
+                    <div class="col-md-5 col-lg-5">
+                        <p> תגובה אחרונה {{currentSubject.latestDateOfAnswer|timeAgo}}  </p>
                     </div>
                     <div class="col-md-3 col-lg-3">
-                        <p>{{postt.DatetimeOfWriting}}</p>
-                    </div>
-                    <div class="col-md-2 col-lg-2">
-                        <p>{{postt.numOfVotes}}</p>
-                        <P >{{postt.time}}</P>
+                        <input type="button" (click)="PostToAnswerSubject('post')" value="תגובה">
                     </div>
                 </div>
             </div>
-            <div class="contentOfTheMessage">
-                <span id="textOnTheSubject">{{postt.ContentText}}</span>
-            </div>
-           
         </div>
-    </li>
-</Ul>
- <!--  <div class="container">
-                <div class="row">
-                        <div class=" col-md-1 col-lg-1">
-                            <p>{{postt.numOfVotes}} מספר ההצבעות</p>
+        <Ul *ngFor="let postt of GetlistOfPost(); let i=index;let votePlus='false';let voteMinus='false';" 
+            [ngClass]="(i %2==0)?'speech-bubble-post-event':'speech-bubble-post-od'">
+            <li>
+                <hr>
+                <div id="post">
+                    <div class="row">
+
+                        <div class="col-md-2 col-lg-2">
+
+                            <P>{{postt.StoreName}}</P>
                         </div>
-            </div> -->
+                        <div class="col-md-3 col-lg-3">
+
+                            <p>{{postt.DatetimeOfWriting|timeAgo}}</p>
+                        </div>
+                    </div>
+                    <div class="contentOfTheMessage">
+                        <span id="textOnTheSubject">{{postt.ContentText}}</span> 
+                        <!-- <textarea id="textOnTheSubject">{{postt.ContentText}}</textarea> -->
+                   </div>
+                   <p name="quantity">{{postt.numOfVotes}}</p>
+                  
+                </div>                                         
+             </li>
+        </Ul>
+    </div>
+</div> 
+ 
+                        <!-- <input type="number" id="quantity"  min="0" value="" oninput="votes(postt.PostID)">  -->
+                        <!-- <div class="left">  -->
+                            <!-- <input *ngIf="postt.vote" type="text" #commentToPost for="quantity" class="speech-bubble" placeholder="הכנס הערה לכותב הפוסט"> --> 
+                           <!-- <button ng-click="!postt.votePlus&& votes(postt.numOfVotes+1,postt.PostID)||votePlus&& votes(postt.numOfVotes-1,postt.PostID)&&!votePlus"><i class="glyphicon glyphicon-minus">  </i></button>
+                          {{postt.numOfVotes}}
+                           <button  ng-click="!postt.voteMinus&& votes(postt.numOfVotes-1,postt.PostID)&&voteMinus=!voteMinus||voteMinus&& votes(postt.numOfVotes+1,postt.PostID)&&voteMinus=!voteMinus"> <i class="glyphicon glyphicon-plus">  </i> </button> -->
+                        <!-- </div> -->

@@ -28,6 +28,10 @@ addSubject(s:SubjectOfForum)
 GetIDOfNewestSubject():Observable<number>{ 
   return this.http.get<number>(this.url+"/GetIDOfNewestSubject");
 }
+//מחזירה את התאריך של הפןסט האחרון שנכתב כתגובה לנושא זה
+GetlatestDateOfPostBySubjectId(subjectId:number):Observable<Date>{
+  return this.http.get<Date>(this.url+"/GetlatestDateOfPostBySubjectId?subjectId="+subjectId);
+ }
 }
 
 
