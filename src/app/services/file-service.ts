@@ -23,9 +23,9 @@ export class FileService {
 
  
  //כל החשבוניות של החנות
-  getAllBills():Observable<Bill[]> {
-    // return this.http.get<Bill>(this.url+"/getAllBills?storeId="+storeId);
-    return this.http.get<Bill[]>(this.url+"/GetAll");
+  getAllBills(id:number):Observable<Bill[]> {
+    debugger
+    return this.http.get<Bill[]>(this.url+"/GetAll"+"?id="+id);
   }
 
  //מחיקת קובץ מהמלאי

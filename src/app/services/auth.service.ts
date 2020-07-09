@@ -1,19 +1,35 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Login } from '../model/store';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  loggedIn = false;
+  @Output() getLoggedInName: EventEmitter<boolean> = new EventEmitter();
+
   //התחברות
-LoginAuth(){
-  this.loggedIn=true;
-}
-  isAuth(){
-      return this.loggedIn;
+  LoginAuth(user: string) {
+    localStorage.setItem('currentUser', user);
+    this.router.navigate(["/home-page-component"]);
+    this.getLoggedInName.emit(true);
   }
+  isAuth() {
+  if(localStorage.getItem('currentUser'))
+  return true;
+  }
+  getUser() {
+    return localStorage.getItem('currentUser');
+  }
+  getUserId(): number {
+    return parseInt(this.getUser());
+  }
+    logout() {
+        localStorage.removeItem('currentUser');
+    this.router.navigate(["/login-component"]);
 
+    }
 }

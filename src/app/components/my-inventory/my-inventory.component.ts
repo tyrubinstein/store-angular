@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FileService } from '../../services/file-service'
 import { Bill } from 'src/app/model/bill';
+import { AuthService } from "../../services/auth.service";
 @Component({
   selector: 'app-my-inventory',
   templateUrl: './my-inventory.component.html',
@@ -13,10 +14,10 @@ export class MyInventoryComponent implements OnInit {
   RangeForSearchDate1: Date = null;
   RangeForSearchDate2: Date = null;
   textForButton = "חפש חשבוניות"
-  constructor(private fileservice: FileService) { }
+  constructor(private fileservice: FileService,private authservice:AuthService) { }
   today;
   ngOnInit(): void {
-    this.fileservice.getAllBills().subscribe((data: Bill[]) => this.allBills = data, (error) => console.error());
+       this.fileservice.getAllBills(this.authservice.getUserId()).subscribe((data: Bill[]) => this.allBills = data, (error) => console.error());
     console.log(this.allBills)
     // this.today = new Date();
     // var dd = String(this.today.getDate()).padStart(2, '0');

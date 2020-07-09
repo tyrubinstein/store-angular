@@ -10,7 +10,7 @@ import {FindClothService } from "../../services/find-cloth.service";
 export class FindClothApplicationComponent implements OnInit {
  
   foundStores;
-  SearchClothModel:SearcCloth;
+  SearchClothModel:SearcCloth=new SearcCloth();
   constructor(private findclothservice:FindClothService) { }
 
   ngOnInit(): void {

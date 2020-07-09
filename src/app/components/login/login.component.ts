@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { RegisterService } from 'src/app/services/Register-service';
 import { Login } from '../../model/store';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router'
 import { AuthService } from '../../services/auth.service'
+import { Key } from 'protractor';
+import { parse } from 'path';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,32 +18,33 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
+  @Output() login = new EventEmitter<boolean>();
   loginmodel = new Login("", "");
   tryToSubmit = false;
   wrongPassword = false;
   noUser = false;
-  res:string
+  res: string
   submitForm(f: NgForm) {
     if (f.valid) {
-      debugger
-      this.authService.LoginAuth();
+      
       this.registerService.isUserExist(this.loginmodel).subscribe(
-        (response:string) => {
-          this.res=response
-          debugger
-          if (this.res=="true") {//אם יש כזה משתמש עם כזאת סיסמא
-            this.router.navigate(['home-page-component'])
-            alert("ברוך בואך"+this.loginmodel.Email);
+        (response: string) => {
+          this.res = response
+          if (parseInt(this.res, 10)) {//אם יש כזה משתמש עם כזאת סיסמא
+            
+            this.authService.LoginAuth(this.res);
+            this.login.emit(true);
+          
+            alert(`welcome${this.authService.getUser()}`)
           }
-          else if(this.res=="no password"){
+          else if (this.res == "no password") {
             alert("הסיסמא שגויה");
-            this.loginmodel.PasswordUser=""
+            this.loginmodel.PasswordUser = ""
           }
-          else{
-            this.router.navigate(['register-component'])
+          // else {
+          //   this.router.navigate(['register-component'])
 
-          }
+          // }
         }, (error) => console.log(error))
     }
     else {

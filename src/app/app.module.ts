@@ -16,8 +16,9 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import {RegisterService} from './services/Register-service'
-import {AuthGuard} from './auth.guard';
+import {AuthGuard} from './guard/auth.guard';
 import{ AuthService}from'./services/auth.service';
+import { PrivateAreaComponent } from './components/private-area/private-area.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import{ AuthService}from'./services/auth.service';
     ForumComponent,
     ListOfComponent,
     SearchBoxComponent,
-    TopMenuComponent
+    TopMenuComponent,
+    PrivateAreaComponent
   ],
   imports: [
     BrowserModule,

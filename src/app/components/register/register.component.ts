@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '../../model/store'
+import { Store, Login } from '../../model/store'
 import { RegisterService } from '../../services/Register-service'
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -28,14 +28,16 @@ export class RegisterComponent implements OnInit {
     if (f.valid) {
       this.registerService.addStore(this.registermodel)
         .subscribe(
-          (response) => {
-            
-            alert("הוספת בהצלחה")
+          (response:string) => {
             this.formSubmited = true
-            this.authService.LoginAuth();
-            this.router.navigate(["home-page-component"])
+            this.authService.LoginAuth(response);
+            alert(this.authService.getUserId().toString()+ "הוספת בהצלחה")
+            
           },
-          (error) => console.log(error)
+          (error) => {
+            console.log(error)
+            alert("שגיאה בנתונים נסה שנית")
+          }
         );
 
     }
