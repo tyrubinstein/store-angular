@@ -5,14 +5,13 @@
             <div dir="rtl" class="col-md-6 col-lg-6" class="speech-bubble-subject">
                 <div dir="rtl" class="row">
 
-                    <div class="col-md-2 col-lg-2 left">
-                        <P>{{currentSubject.StoreName}}</P>
+                   
+                    <div class="col-md-6 col-lg-6 ">
+                        <p> נכתב ע"י {{currentSubject.StoreName}} {{currentSubject.DatetimeOfWriting |date:' בתאריך: yyyy-MM-dd  בשעה: hh:mm ' }}</p>
                     </div>
-                    <div class="col-md-3 col-lg-3 ">
-                        <p>{{currentSubject.DatetimeOfWriting}}</p>
-                    </div>
-                    <div class="col-1-offset col-md-6 col-lg-6">
-                        <h1>{{currentSubject.SubjectName}}</h1>
+                    
+                    <div class="col-1-offset col-md-6 col-lg-6 ">
+                        <span id="SubjectName">{{currentSubject.SubjectName}}</span>
                     </div>
                 </div>
 
@@ -37,14 +36,12 @@
                 <hr>
                 <div id="post">
                     <div class="row">
-
-                        <div class="col-md-2 col-lg-2">
-
-                            <P>{{postt.StoreName}}</P>
+                       
+                        <div class="col-md-8 col-lg-8">
+                            <p>התקבל כתגובה מאת {{postt.StoreName}} {{postt.DatetimeOfWriting|timeAgo}}</p>
                         </div>
-                        <div class="col-md-3 col-lg-3">
-
-                            <p>{{postt.DatetimeOfWriting|timeAgo}}</p>
+                        <div class="col-1-offset col-md-3 col-lg-3">
+                            <h3> {{postt.Title}} </h3>
                         </div>
                     </div>
                     <div class="contentOfTheMessage">

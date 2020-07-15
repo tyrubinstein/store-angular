@@ -1,5 +1,5 @@
 <div class="container" id="" class="card card1">
-            <input  #SubjectName  type="text" tabindex="1" id="subjectpostName"
+            <input  #SubjectOrPostName  type="text" tabindex="1" id="subjectpostName"
                 [placeholder]="titleSet" value="">
     <div class="row" id="">
 
@@ -14,10 +14,10 @@
             <p >{{wanttoUpdate}}</p>
         </div>
         <div class=" col-md-3 col-lg-3"*ngIf="subjectOrPost=='subject'">
-            <input type="button" (click)="submitSubject(SubjectName.value,wantUpdate.checked,Content.value)" value="שלח">
+            <input type="button" (click)="submitSubject(SubjectOrPostName.value,wantUpdate.checked,Content.value)" value="שלח">
         </div>
         <div class=" col-md-3 col-lg-3"*ngIf="subjectOrPost=='post'">
-            <input type="button" (click)="submitPost(wantUpdate.checked,Content.value)" value="שלח">
+            <input type="button" (click)="submitPost(SubjectOrPostName.value,wantUpdate.checked,Content.value)" value="שלח">
         </div>
         <div class="col-md-3 col-lg-3">
             <input type="button" (click)="cancel()" value="בטל">

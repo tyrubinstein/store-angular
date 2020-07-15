@@ -154,6 +154,7 @@ temp:string
   changeCurrentSubject(idsubject: number) {
     this.getSubjectByIDPromise(idsubject)
     .then(() => this.getNameStoreById(this.currentSubject.StoreID))
+    .then(() => this.currentSubject.StoreName=this.nameOfStore)
     .then(() => this.GetlatestDateOfPostBySubjectId());
     this.getListOfPostById(idsubject);
     this.currentSubjectID=idsubject;

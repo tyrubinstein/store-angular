@@ -23,6 +23,7 @@ import { SubjectOfForumService } from './services/subjectOfForum.service';
 import { SubjectDetailsComponent } from './components/subject-details/subject-details.component';
 import { SetPostAndSubjectComponent } from './components/set-post-and-subject/set-post-and-subject.component';
 import { TimeAgoPipe } from './time-ago.pipe';
+import { PrivateAreaComponent } from './components/private-area/private-area.component';
 
 
 @NgModule({
@@ -43,6 +44,8 @@ import { TimeAgoPipe } from './time-ago.pipe';
     SetPostAndSubjectComponent,
     TimeAgoPipe,
     
+
+    PrivateAreaComponent
   ],
   imports: [
     BrowserModule,

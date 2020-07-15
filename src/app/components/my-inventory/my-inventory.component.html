@@ -1,8 +1,19 @@
 <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<div class="file-upload">
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" name="textForButton"><button id="btn1" class="button" (click)="ButtonClick()">{{textForButton}}</button></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><input type="date" [(ngModel)]="RangeForSearchDate1" name="RangeForSearchDate1"> </div>
+    <div class="col-md-2"><input type="date" [(ngModel)]="RangeForSearchDate2" name="RangeForSearchDate2"> </div>
+  </div>
+</div>
+
+
+<div class="file-upload">
   <div class="image-upload-wrap">
-    <input class="file-upload-input" type="file" />
+    <input class="file-upload-input" type="file"  />
     <div class="drag-text">
       <h3>Drag and drop a file</h3>
     </div>
@@ -10,45 +21,27 @@
   <div class="file-upload-content">
   </div>
 
-  <!-- <form method="get" action="korot-delete.asp" name="korotdel"> -->
-  <div *ngFor="let item of getAllBills() let i=index" class="CardStyle" data-font-size="12" data-font-size-type="px">
+ 
+  <div  *ngFor="let item of GetallBills() let i=index" class="CardStyle" data-font-size="12"
+    data-font-size-type="px">
     <div id="7958441" class="CardRow ArrowDown KorotFile Point Open" tabindex="0" data-font-size="12"
       data-font-size-type="px">
       <div id="wrapDeatils" data-font-size="12" data-font-size-type="px">
         <div class="CardHeader" data-font-size="14" data-font-size-type="px">{{item.BillPath}}</div>
         <div data-font-size="12" data-font-size-type="px">{{item.BilDate}}</div>
       </div>
-
       <div class="Transition KorotOpt stopPropagation" data-font-size="12" data-font-size-type="px">
-        <input type="button" value="צפה בקובץ" class="bttn" onclick="location.href=item.path">
-        <input  type="button" value="מחק קובץ" class="bttn red" />
+        <a href="{{item.BillPath}}" target="_blank"> <input type="button" value="צפה בקובץ" class="bttn"></a>
+        <input type="button" value="מחק קובץ" (click)="delete(item.BillPath)" class="bttn red" />
       </div>
     </div>
-
   </div>
-  <!-- </form> -->
-  <!-- <form method="get" action="korot-delete.asp" name="korotdel">
-    <div class="CardStyle" data-font-size="12" data-font-size-type="px">
-      <div id="7958441" class="CardRow ArrowDown KorotFile Point Open" tabindex="0" data-font-size="12"
-        data-font-size-type="px">
-        <div id="wrapDeatils" data-font-size="12" data-font-size-type="px">
-          <div class="CardHeader" data-font-size="14" data-font-size-type="px">
-            חשבונית.docx
-          </div>
-          <div data-font-size="12" data-font-size-type="px">
-            14/06/2020
-          </div>
 
-        </div>
-        <div class="Transition KorotOpt stopPropagation" data-font-size="12" data-font-size-type="px">
-          <input type="button" value="צפה בקובץ" target="_blank" class="bttn"
-            onclick="location.href='https://docs.google.com/document/d/1cgp0Pz_8fHVjJ_KEcUHC1eg3vtLIm_IeKPz5FAp8bj8/edit#';">
-          <input type="button" value="מחק קובץ" class="bttn red">
-        </div>
-      </div>
 
-    </div>
-  </form> -->
+  <form #imageForm=ngForm name=form (ngSubmit)="OnSubmit()">   
+        <input id="file-input" [(ngModel)]="fileToUpload" name="fileToUpload" #Image type="file" />
+        <button type="submit" class="btn-large btn-submit" >save</button>
+</form>
 
-  <!-- <input #fileInput type="file"/>
-  <button (click)="addFile()">Add</button> -->
+
+

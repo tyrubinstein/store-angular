@@ -1,13 +1,12 @@
-<p>find-cloth-application works!</p>
-<div class="searchBox">
 
-  <input class="searchInput" type="text" name="" placeholder="Search">
-  <button class="searchButton" href="#">
-    <i class="material-icons">
-      search
-    </i>
-  </button>
-</div>
+
+        
+<input [(ngModel)]="SearchClothModel.ClothCompaniCod" placeholder="קוד הבגד" />
+<input [(ngModel)]="SearchClothModel.Describe" placeholder="תיאור"  />
+<input [(ngModel)]="SearchClothModel.CompanyName" placeholder="חברה" />
+<input [(ngModel)]="SearchClothModel.Color" placeholder="צבע"  />
+<input [(ngModel)]="SearchClothModel.Size" placeholder="מידה"  />
+<input type="button" (click)="SearchCloth()">
 
 <!-- <div class="box box1">
     <div class="oddboxinner"> למציאת בגד חייגו:05555555 
@@ -17,6 +16,14 @@
 <div class="oddboxinner"></div> -->
 
 <div class="container">
+  <div class="searchBox">
+    <input class="searchInput" type="text" name="" placeholder="Search">
+    <button class="searchButton"  (click)="SearchCloth()">
+      <i class="material-icons">
+        חפש בגד
+      </i>
+    </button>
+  </div>
   <h2>החנויות שהזמינו את הבגד<small>ממוין לפי מרחק</small></h2>
   <ul *ngFor="let item of getStoresThtHaveTheCloth() let i=index" class="responsive-table">
     <li class="table-header">

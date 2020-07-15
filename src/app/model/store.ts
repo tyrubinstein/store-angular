@@ -20,25 +20,6 @@ export class Login {
     }
 
 }
-export class FoundStores {
-    StoreName: string
-    Address: string
-    City: string
-    ManagerName: string
-    cellOftheStore: string
-    constructor(StoreName: string,
-        Address: string,
-        City: string,
-        ManagerName: string,
-        cellOftheStore: string,
-    ) {
-        this.Address = Address
-        this.City = City
-        this.ManagerName = ManagerName;
-        this.StoreName = StoreName;
-        this.cellOftheStore = cellOftheStore;
-    }
-}
 
 
 export class StoresThatHaveTheCloth {
@@ -47,17 +28,6 @@ export class StoresThatHaveTheCloth {
     City: string
     ManagerName: string
     cellOftheStore: string
-    constructor(StoreName: string,
-        Address: string,
-        City: string,
-        ManagerName: string,
-        cellOftheStore: string) {
-        this.Address = Address;
-        this.City = City;
-        this.ManagerName = ManagerName;
-        this.StoreName = StoreName;
-        this.cellOftheStore = cellOftheStore;
-    }
 
 }
 

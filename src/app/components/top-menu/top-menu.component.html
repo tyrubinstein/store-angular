@@ -16,8 +16,11 @@
           <li><a routerLink="/economic-articles-component" routerLinkActive="active">מאמרים כלכליים</a></li>
           <li><a routerLink="/forum-component" routerLinkActive="active">פורום</a></li>
           <li><a routerLink="/my-inventory" routerLinkActive="active">המלאי שלך</a></li>
-          <li class="btn"><a routerLink="/login-component" routerLinkActive="active">Log In</a></li>
-          <li class="btn sign-up"><a routerLink="/register-component" routerLinkActive="active">Sign Up</a></li>
+          <li *ngIf="!isLogged" class="btn"><a routerLink="/login-component" routerLinkActive="active">Log In</a></li>
+          <li *ngIf="isLogged" class="btn"><a routerLink="/private-area-component" routerLinkActive="active">אזור אישי</a></li>
+          <li *ngIf="!isLogged" class="btn sign-up"><a routerLink="/register-component" routerLinkActive="active">Sign Up</a></li>
+          <li *ngIf="isLogged" class="btn sign-up" (click)="LogOut()">Logout</li>
+
         </ul>
       </nav>
     <!-- </div> -->

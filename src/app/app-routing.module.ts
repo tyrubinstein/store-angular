@@ -8,6 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ForumComponent } from './components/forum/forum.component';
 import { MyInventoryComponent } from './components/my-inventory/my-inventory.component';
 import { AuthGuard } from './guard/auth.guard';
+import { PrivateAreaComponent } from './components/private-area/private-area.component';
 
 
 const routes: Routes = 
@@ -19,6 +20,8 @@ const routes: Routes =
   { path: 'login-component', component: LoginComponent },
   { path: 'register-component', component: RegisterComponent },
   { path: 'forum-component', component: ForumComponent  ,canActivate: [AuthGuard]},
+  { path: 'private-area-component', component: PrivateAreaComponent ,canActivate: [AuthGuard] },
+
 ];
 
 @NgModule({

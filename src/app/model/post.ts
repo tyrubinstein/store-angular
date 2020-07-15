@@ -9,5 +9,6 @@ export class Post {
       StoreName:string;
       latestDateOfAnswer:Date;
       ifWantUpdate:boolean;
+      Title:string;
 }
 

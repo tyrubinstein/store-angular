@@ -4,6 +4,7 @@ import { PostService } from 'src/app/services/post.service';
 import { SubjectOfForumService } from 'src/app/services/subjectOfForum.service';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/model/post';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-set-post-and-subject',
@@ -13,7 +14,7 @@ import { Post } from 'src/app/model/post';
 export class SetPostAndSubjectComponent implements OnInit {
 @Input() subjectOrPost:string;
 titleSet:string;
-  buildSubject:SubjectOfForum=new SubjectOfForum;
+buildSubject:SubjectOfForum=new SubjectOfForum;
 buildPost:Post=new Post;
 submitNavigate:string;
 @Input() chooserId:number;
@@ -22,7 +23,7 @@ wanttoUpdate:string;
 @Input() SetSetToClose: Function;
 
 //לעשות ngmodel to open for cancel
-constructor(private PostService:PostService,private SubjectService:SubjectOfForumService,private router:Router) { }
+constructor(private PostService:PostService,private SubjectService:SubjectOfForumService,private router:Router,private authService:AuthService) { }
 
   ngOnInit(): void {
 if(this.subjectOrPost=='post')
@@ -51,7 +52,7 @@ this.submitNavigate="Subject"
   {  
    this.buildSubject.SubjectName= subjectName;
    this.buildSubject.IfWantUpdate= ifWantUpdate;
-   this.buildSubject.StoreID= 1000;
+   this.buildSubject.StoreID= this.authService.getUserId();
    this.buildSubject.Content= subjectContent;
    this.SubjectService.addSubject(this.buildSubject) .subscribe(
     (response) =>
@@ -61,13 +62,13 @@ this.submitNavigate="Subject"
     (error) => console.log(error)
   );
   }
-  submitPost(ifWantUpdate:boolean,Content:string)
-  {
+  submitPost(SubjectOrPostName:string,ifWantUpdate:boolean,Content:string)
+  {    
     this.buildPost.SubjectID=this.GetCurrentId(); 
-    this.buildPost.StoreID=1000;
+    this.buildPost.StoreID=this.authService.getUserId();
     this.buildPost.ContentText=Content;
     this.buildPost.ifWantUpdate=ifWantUpdate;
-    
+    this.buildPost.Title=SubjectOrPostName;
     this.PostService.addPost(this.buildPost) .subscribe(
     (response) =>
     {
