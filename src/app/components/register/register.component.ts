@@ -30,8 +30,13 @@ export class RegisterComponent implements OnInit {
         .subscribe(
           (response:string) => {
             this.formSubmited = true
-            this.authService.LoginAuth(response);
+            if(response!="0"){
+                this.authService.LoginAuth(response);
             alert(this.authService.getUserId().toString()+ "הוספת בהצלחה")
+            }
+          else{
+            alert("יש כבר משתמש עם אימייל כזה במערכת")
+          }
             
           },
           (error) => {

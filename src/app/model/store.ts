@@ -1,6 +1,6 @@
 
 export class Store {
-    // StoreID: number
+    StoreID: number
     StoreName: string
     Address: string
     City: string

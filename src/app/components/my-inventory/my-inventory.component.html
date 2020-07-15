@@ -13,9 +13,9 @@
 
 <div class="file-upload">
   <div class="image-upload-wrap">
-    <input class="file-upload-input" type="file"  />
+    <input class="file-upload-input" type="file" value=""  #file (change) = "onFileChange($event)" />
     <div class="drag-text">
-      <h3>Drag and drop a file</h3>
+      <h3>לחץ כאן להעלאת קבצים</h3>
     </div>
   </div>
   <div class="file-upload-content">
@@ -36,12 +36,3 @@
       </div>
     </div>
   </div>
-
-
-  <form #imageForm=ngForm name=form (ngSubmit)="OnSubmit()">   
-        <input id="file-input" [(ngModel)]="fileToUpload" name="fileToUpload" #Image type="file" />
-        <button type="submit" class="btn-large btn-submit" >save</button>
-</form>
-
-
-
