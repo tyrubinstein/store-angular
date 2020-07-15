@@ -15,8 +15,6 @@ export class RegisterComponent implements OnInit {
   registermodel:Store=new Store;
   tryToSubmit = false
   constructor(private registerService: RegisterService, private router: Router, private authService: AuthService) { }
-
-
   ngOnInit(): void {
 
   }

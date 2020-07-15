@@ -9,7 +9,7 @@ export class Store {
     Email: string
     PasswordUser: string
     cellOftheStore: string
-   
+  
 }
 export class Login {
     PasswordUser: string

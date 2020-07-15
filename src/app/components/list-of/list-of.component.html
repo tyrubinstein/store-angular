@@ -1,7 +1,19 @@
-<main>
-    <ol  *ngFor="let item of getsubjectlist(); let i=index " counter=i  class="gradient-list">
-      <li >{{item.name}}</li>
-  </ol>
-  </main>
 
-  
+<ul *ngFor="let record of getsubjectlist();" let i=index >
+  <li>
+<div class="container"  (click)="pressOnRecord(record.ID)" >
+  <div class="row">
+      <!-- <div class="col-md-6 col-lg-6"> -->
+        <h1>{{record.ImportantText}}</h1>
+        <p>{{record.sideText}}</p> 
+      <!-- </div> -->
+      <!-- <div class="col-md-3 col-lg-3"> -->
+     
+
+      <!-- </div> -->
+  </div>
+</div>
+</li>
+</ul>
+
+

@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class FindClothService {
-  private url = environment.API_URL + '/FindCloth';
+  private url = environment.API_URL + '/FindClothApplicationController';
 
   constructor(private http: HttpClient) { }
 

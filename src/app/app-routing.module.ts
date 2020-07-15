@@ -13,14 +13,14 @@ import { PrivateAreaComponent } from './components/private-area/private-area.com
 
 const routes: Routes = 
 [
-  { path: 'economic-articles-component', component: EconomicArticlesComponent ,canActivate: [AuthGuard] },
+  { path: 'economic-articles-component', component: EconomicArticlesComponent ,canActivate: [AuthGuard]  },
   { path: 'my-inventory', component: MyInventoryComponent ,canActivate: [AuthGuard]},
-  { path: 'find-cloth-application-component', component: FindClothApplicationComponent  ,canActivate: [AuthGuard]},
+  { path: 'find-cloth-application-component', component: FindClothApplicationComponent ,canActivate: [AuthGuard] },
   { path: 'home-page-component', component: HomePageComponent ,canActivate: [AuthGuard] },
-  { path: 'private-area-component', component: PrivateAreaComponent ,canActivate: [AuthGuard] },
   { path: 'login-component', component: LoginComponent },
   { path: 'register-component', component: RegisterComponent },
   { path: 'forum-component', component: ForumComponent  ,canActivate: [AuthGuard]},
+  { path: 'private-area-component', component: PrivateAreaComponent ,canActivate: [AuthGuard] },
 
 ];
 

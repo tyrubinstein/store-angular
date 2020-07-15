@@ -1,0 +1,31 @@
+<div class="container" id="" class="card card1">
+            <input  #SubjectOrPostName  type="text" tabindex="1" id="subjectpostName"
+                [placeholder]="titleSet" value="">
+    <div class="row" id="">
+
+        <div class="col-md-2 col-lg-2">
+            <input type="button" (click)="B()" value="B">
+        </div>
+        <div class="col-md-2 col-lg-2">
+            <input type="button" (click)="I()" value="I">
+        </div>
+        <div class="col-md-2 col-lg-2">
+            <input type="checkbox" #wantUpdate id="vehicle1" name="IfWantUpdate" >
+            <p >{{wanttoUpdate}}</p>
+        </div>
+        <div class=" col-md-3 col-lg-3"*ngIf="subjectOrPost=='subject'">
+            <input type="button" (click)="submitSubject(SubjectOrPostName.value,wantUpdate.checked,Content.value)" value="שלח">
+        </div>
+        <div class=" col-md-3 col-lg-3"*ngIf="subjectOrPost=='post'">
+            <input type="button" (click)="submitPost(SubjectOrPostName.value,wantUpdate.checked,Content.value)" value="שלח">
+        </div>
+        <div class="col-md-3 col-lg-3">
+            <input type="button" (click)="cancel()" value="בטל">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-6">
+            <textarea #Content class="write" tabindex="4" dir="rtl"></textarea>
+        </div>
+    </div>
+   

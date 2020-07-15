@@ -13,6 +13,6 @@ export class SearcCloth {
         Describe: string
         Color: string
         CompanyName: string
-        ClothId: string
+        ClothCompaniCod: string
         Size:string
 }
