@@ -17,13 +17,13 @@ import { HttpClientModule } from '@angular/common/http';
 import {RegisterService} from './services/Register-service'
 import {AuthGuard} from './guard/auth.guard';
 import{ AuthService}from'./services/auth.service';
-import { ListOfSubjectsComponent } from './components/list-of-subjects/list-of-subjects.component';
 import { PostService } from './services/post.service';
 import { SubjectOfForumService } from './services/subjectOfForum.service';
 import { SubjectDetailsComponent } from './components/subject-details/subject-details.component';
 import { SetPostAndSubjectComponent } from './components/set-post-and-subject/set-post-and-subject.component';
 import { TimeAgoPipe } from './time-ago.pipe';
 import { PrivateAreaComponent } from './components/private-area/private-area.component';
+import { InventoryComponent } from './components/inventory/inventory.component';
 
 
 @NgModule({
@@ -39,13 +39,15 @@ import { PrivateAreaComponent } from './components/private-area/private-area.com
     ListOfComponent,
     SearchBoxComponent,
     TopMenuComponent,
-    ListOfSubjectsComponent,
     SubjectDetailsComponent,
     SetPostAndSubjectComponent,
     TimeAgoPipe,
     
 
-    PrivateAreaComponent
+    PrivateAreaComponent,
+    
+
+    InventoryComponent
   ],
   imports: [
     BrowserModule,

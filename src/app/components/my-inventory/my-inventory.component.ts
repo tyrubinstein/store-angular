@@ -2,24 +2,38 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FileService } from '../../services/file-service'
 import { Bill } from 'src/app/model/bill';
 import { AuthService } from "../../services/auth.service";
+import { error } from 'protractor';
+import { Inventory } from 'src/app/model/inventory';
+import { InventoryComponent } from '../inventory/inventory.component';
 @Component({
   selector: 'app-my-inventory',
   templateUrl: './my-inventory.component.html',
   styleUrls: ['./my-inventory.component.scss']
 })
 export class MyInventoryComponent implements OnInit {
+ 
   file: File
+  addClothesOpen = false;
   allBills = [];
   allSearchBills = []
   RangeForSearchDate1: Date = null;
   RangeForSearchDate2: Date = null;
   textForButton = "חפש חשבוניות"
+  myinventory:Inventory[]=[];
   constructor(private fileservice: FileService, private authservice: AuthService) { }
-  today;
+
+
   ngOnInit(): void {
     this.fileservice.getAllBills(this.authservice.getUserId()).subscribe((data: Bill[]) => this.allBills = data, (error) => console.error());
     console.log(this.allBills)
+    //get inventoryth
+    
+    this.fileservice.GetInventoryById(this.authservice.getUserId()).subscribe(
+      (response:any)=>{this.myinventory=response},
+      (error)=>{; console.log(error)})
   }
+
+
   GetallBills() {
     if (this.textForButton == "הצג את הכל")
       return this.allSearchBills;
@@ -86,24 +100,32 @@ export class MyInventoryComponent implements OnInit {
     var parameters = {
       storeId: this.authservice.getUserId()
     }
-      this.fileservice.upload(formData).subscribe(
-          (data:Bill[]) => {
-            this.allBills=data;
-            this.GetallBills();
-            alert("הקובץ הועלה בהצלחה")
-            console.log("success")
-            
-          },
-          error => {
-          
-            console.log(error)
-          })
-    
+    this.fileservice.upload(formData).subscribe(
+      (data: Bill[]) => {
+        this.allBills = data;
+        this.GetallBills();
+        alert("הקובץ הועלה בהצלחה")
+        console.log("success")
+
+      },
+      error => {
+
+        console.log(error)
+      })
+
+  }
+  AddClothes() {
+    this.addClothesOpen = true;
   }
 
+  get enableCloseAddCloth() {
+    return this.CloseAddClothes.bind(this);
+  }
 
-
-
-
+  CloseAddClothes() {
+ 
+    this.addClothesOpen = false;
+  
+  }
 }
 

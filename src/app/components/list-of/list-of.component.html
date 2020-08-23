@@ -1,19 +1,13 @@
+<div class="list">
+  <ul *ngFor="let record of getsubjectlist();" let i=index>
+    <li>
+      <div (click)="pressOnRecord(record.ID)" class="tr">
 
-<ul *ngFor="let record of getsubjectlist();" let i=index >
-  <li>
-<div class="container"  (click)="pressOnRecord(record.ID)" >
-  <div class="row">
-      <!-- <div class="col-md-6 col-lg-6"> -->
         <h1>{{record.ImportantText}}</h1>
-        <p>{{record.sideText}}</p> 
-      <!-- </div> -->
-      <!-- <div class="col-md-3 col-lg-3"> -->
-     
+        <p>{{record.sideText}}</p>
+      </div>
 
-      <!-- </div> -->
-  </div>
+    </li>
+  </ul>
+
 </div>
-</li>
-</ul>
-
-

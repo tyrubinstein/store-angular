@@ -1,12 +1,15 @@
 export class Cloth {
         ClothID: string
         ClothCompaniCod: string
+        CompanyName:string
         CompanyId: string
-        YearOfProduction: Date
+        YearOfProduction: number
         Describe: string
         pictureURL: string
         Color: string
         Price: number
+        SizesRange:string
+
 
 }
 export class SearcCloth {

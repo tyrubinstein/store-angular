@@ -1,0 +1,30 @@
+
+<div class="head">
+   <button (click)="saveClothes()" >שמור</button>   <button (click)="cancel()">בטל</button>>
+<div class="container">
+    <ul class="responsive-table">
+        <li class="table-header">
+            <div class="col col-7"></div>
+            <div class="col col-1">קוד בגד</div>
+            <div class="col col-2">תאור</div>
+            <div class="col col-3">שם חברה</div>
+            <div class="col col-4">קוד חברה</div>
+            <div class="col col-5">צבע</div>
+            <div class="col col-6">מידה</div>
+
+
+        </li>
+        <li  *ngFor="let item of inventoryArr;  let i=index"  class="table-row">
+            <input  class="col col-7" type="checkbox" [checked]="check(item)"  (change)="handleChange(i)">
+            <div class="col col-1" data-label="קוד בגד">{{item.ClothCompaniCod}}</div>
+            <div class="col col-2" data-label="תאור">{{item.Describe}}</div>
+            <div class="col col-3" data-label="שם חברה">{{item.CompanyName}}</div>
+            <div class="col col-4" data-label="קוד חברה">{{item.CompanyId}}</div>
+            <div class="col col-5" data-label="צבע">{{item.Color}}</div>
+            <div class="col col-6" data-label="מידה">{{item.SizesRange}}</div>
+           
+
+        </li>
+    </ul>
+</div>
+</div>
