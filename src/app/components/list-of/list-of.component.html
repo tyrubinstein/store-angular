@@ -1,19 +1,16 @@
-
-<ul *ngFor="let record of getsubjectlist();" let i=index >
-  <li>
-<div class="container"  (click)="pressOnRecord(record.ID)" >
+<div class="listWrapper">
+<ul *ngFor="let record of getsubjectlist();let i=index;"  >
+  <li  [ngClass]="{'active': indexfindnumber ==i }">
+<div class="container" 
+(click)="indexfindnumber=i; pressOnRecord(record.ID)">
   <div class="row">
-      <!-- <div class="col-md-6 col-lg-6"> -->
-        <h1>{{record.ImportantText}}</h1>
+   <div class="card">
+        <h3>{{record.ImportantText}}</h3>
         <p>{{record.sideText}}</p> 
-      <!-- </div> -->
-      <!-- <div class="col-md-3 col-lg-3"> -->
-     
-
-      <!-- </div> -->
+      </div>
   </div>
 </div>
 </li>
 </ul>
-
+</div>
 

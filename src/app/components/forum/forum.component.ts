@@ -13,8 +13,6 @@ import { SubjectDetailsComponent } from '../subject-details/subject-details.comp
 })
 export class ForumComponent implements OnInit {
   @ViewChild(SubjectDetailsComponent) child: SubjectDetailsComponent;
-
-
   nameOfController: string = '/Subject';
   nameOfFunction: string = '/GetListOfAllSubject';
   chooserId: number;

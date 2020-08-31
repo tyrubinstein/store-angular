@@ -1,0 +1,34 @@
+<p>ברוכים הבאים לחברת : כאן יהיה שם החברה</p>
+<div class="container">
+    <div class="row">
+      <div class="col-md-3" name="textForButton"><button id="btn1" class="button" (click)="ButtonClick()">{{textForButton}}</button></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"><input type="number" [(ngModel)]="fromYear" name="RangeForSearchYear"> </div>
+      <div class="col-md-2"><input type="number" [(ngModel)]="ToYear" name="RangeForSearchYear"> </div>
+
+      <select (change)="onChange($event)">
+        <option *ngFor="let v of values" [value]="v.id">{{v.name}}</option>
+    </select>   
+ </div>
+  </div> 
+  <div class="listWrapper">
+    <ul *ngFor="let record of getClotjesListForCompany();let i=index;"  >
+      <li  [ngClass]="{'active': indexfindnumber ==i }">
+    <div class="container" 
+    (click)="indexfindnumber=i; pressOnRecord(record.ID)">
+      <div class="row">
+       <div class="card">
+             <p>מק"ט בגד</p>
+            <p>תאור בגד</p> 
+            <p>צבע</p> 
+            <p>טווח מידות</p> 
+            <p>מחיר</p>
+          </div>
+      </div>
+    </div>
+    </li>
+    </ul>
+    </div>
+    
+    

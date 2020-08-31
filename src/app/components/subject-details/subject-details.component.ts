@@ -26,6 +26,7 @@ export class SubjectDetailsComponent implements OnInit {
   ContentText: string;
   nameOfStore: string;
   chooserIdBegin: number;
+  postExists:boolean=false;
 temp:string
   constructor(private PostService: PostService, private SubjectService: SubjectOfForumService,private StoreService: StoreService) {
   }
@@ -34,9 +35,9 @@ temp:string
     this.firstIdOfSubject()
       .then(() => this.currentSubjectID = this.chooserIdBegin)
       .then(() => this.getSubjectByIDPromise(this.currentSubjectID)) 
-      .then( () => this.GetlatestDateOfPostBySubjectId())
       .then(() =>  this.getNameStoreById(this.currentSubject.StoreID))
       .then(() => this.currentSubject.StoreName=this.nameOfStore)
+      .then( () => this.GetlatestDateOfPostBySubjectId())
       .then(() => this.getListOfPostById(this.currentSubject.SubjectID))
   }
   firstIdOfSubject(): Promise<number> {
@@ -108,13 +109,15 @@ temp:string
             .then(
               res => {
                 // Success
+                if(res!=null){
                 this.currentSubject.latestDateOfAnswer  = res;
-    
+                this.postExists=true;}
                 resolve();
               },
               msg => {
                 // Error
                 reject(msg);
+
               }
             );
         });
@@ -152,11 +155,12 @@ temp:string
    return this.listOfPost;
   }
   changeCurrentSubject(idsubject: number) {
+    this.postExists=false;
     this.getSubjectByIDPromise(idsubject)
     .then(() => this.getNameStoreById(this.currentSubject.StoreID))
     .then(() => this.currentSubject.StoreName=this.nameOfStore)
-    .then(() => this.GetlatestDateOfPostBySubjectId());
-    this.getListOfPostById(idsubject);
+    .then(() => this.GetlatestDateOfPostBySubjectId()).then(()=>{
+    if(this.postExists==true) { this.getListOfPostById(idsubject)}});
     this.currentSubjectID=idsubject;
   }
   

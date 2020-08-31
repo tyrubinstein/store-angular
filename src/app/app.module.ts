@@ -24,6 +24,7 @@ import { SubjectDetailsComponent } from './components/subject-details/subject-de
 import { SetPostAndSubjectComponent } from './components/set-post-and-subject/set-post-and-subject.component';
 import { TimeAgoPipe } from './time-ago.pipe';
 import { PrivateAreaComponent } from './components/private-area/private-area.component';
+import { CompanyItemsComponent } from './components/company-items/company-items.component';
 
 
 @NgModule({
@@ -45,7 +46,10 @@ import { PrivateAreaComponent } from './components/private-area/private-area.com
     TimeAgoPipe,
     
 
-    PrivateAreaComponent
+    PrivateAreaComponent,
+    
+
+    CompanyItemsComponent
   ],
   imports: [
     BrowserModule,

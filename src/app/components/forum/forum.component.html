@@ -7,7 +7,7 @@
         </div>
         <div class="row">
             <div class="col-md-3 col-lg-3">
-                <app-list-of   [changeCurrentIdFromChild]="enableChangeId" [nameOfController]="nameOfController" [nameOfFunction]="nameOfFunction"></app-list-of>
+                <app-list-of [GetCurrentId]="enableGetCurrentId" [changeCurrentIdFromChild]="enableChangeId" [nameOfController]="nameOfController" [nameOfFunction]="nameOfFunction"></app-list-of>
             </div>
             <div class="col-md-9 col-lg-9">
                 <app-subject-details  [newSubjectOrPost]="enableOpenPost" [chooserId]="chooserId"></app-subject-details>

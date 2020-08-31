@@ -21,7 +21,7 @@
                 <br />
 
                 <div dir="rtl" class="row">
-                    <div class="col-md-5 col-lg-5">
+                    <div *ngIf="postExists" class="col-md-5 col-lg-5" >
                         <p> תגובה אחרונה {{currentSubject.latestDateOfAnswer|timeAgo}}  </p>
                     </div>
                     <div class="col-md-3 col-lg-3">
@@ -30,6 +30,7 @@
                 </div>
             </div>
         </div>
+        <div *ngIf="postExists">
         <Ul *ngFor="let postt of GetlistOfPost(); let i=index;let votePlus='false';let voteMinus='false';" 
             [ngClass]="(i %2==0)?'speech-bubble-post-event':'speech-bubble-post-od'">
             <li>
@@ -55,7 +56,7 @@
         </Ul>
     </div>
 </div> 
- 
+</div> 
                         <!-- <input type="number" id="quantity"  min="0" value="" oninput="votes(postt.PostID)">  -->
                         <!-- <div class="left">  -->
                             <!-- <input *ngIf="postt.vote" type="text" #commentToPost for="quantity" class="speech-bubble" placeholder="הכנס הערה לכותב הפוסט"> --> 

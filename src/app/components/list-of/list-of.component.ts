@@ -12,7 +12,9 @@ export class ListOfComponent implements OnInit {
   @Input() nameOfFunction:string;
   @Input() nameOfController:string;
   @Input() changeCurrentIdFromChild: Function;
+  @Input() GetCurrentId: Function;
 
+  indexfindnumber:number;
   listOf: CfLists[];
   constructor(private forListService:ForlistService) { }
 
@@ -20,6 +22,8 @@ export class ListOfComponent implements OnInit {
 text:string[];
   ngOnInit(): void {
     this.forListService.getListFromController(this.nameOfController,this.nameOfFunction).subscribe((data: CfLists[]) => this.listOf = data);
+  
+    this.indexfindnumber=this.GetCurrentId();
   }
   getsubjectlist() {
       return this.listOf;
@@ -29,6 +33,8 @@ text:string[];
     
     this.changeCurrentIdFromChild(Idoful);
   }
+  
+ 
 
   
 }

@@ -1,23 +1,42 @@
+ .card  {
+    box-shadow: 0 4px 4px 0 rgba(229, 231, 192, 0.2);
+    transition: 0.3s;
+    width: 40%;
+    padding: 4px 4px 4px 4px;
+  }
+  ul li{    list-style-type:none;
+      }
+ul{overflow-inline:  auto;}
+  .card:hover {
+    box-shadow:  4px 4px 1px 1px rgba(167, 74, 74, 0.2);
+    border-right:red($color: #000000) ;
+    background: #ec9fac;
+    background: -webkit-gradient(linear, left top, right top, from(#d5bce7), to(#fac1ca));
+    background: -o-linear-gradient(left, #d5bce7, #fac1ca);
+    background: linear-gradient(to right, #d5bce7, #fac1ca);
+    font-size: large; 
+  }
+   .active{
+    box-shadow: 0 4px 4px 0 rgba(243, 255, 13, 0.2); 
+    border-right-color: red;
+    color:rgb(255, 255, 255)!important;
+    background: #c31432;
+    background: -webkit-gradient(linear, left top, right top, from(#3a1257), to(#c31432));
+    background: -o-linear-gradient(left, #240b36, #c31432);
+    background: linear-gradient(to right, #240b36, #c31432);
+    font-size: large;
+  }
+ 
+  ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+      scrollbar-width: none; /* make scrollbar transparent */
+  }
+  .listWrapper
+  {
+    overflow-y:   scroll;
+    max-height: 600px;
 
-body { height: 100%; 
-  background-color:black !important ;
-color: coral!important;}
-.btn {
-  background-color: #270B36;;
-  padding: 20px 0;
-  text-align: center;
-  width: auto;
-  height: 75px;
-  font-style: oblique;
-  color: #ecf0f1;
-  font-size: 20px;color: #ecf0f1;
-  padding: 20px 8px;
-  // text-decoration: none;
 }
-
-.btn:hover {
-  background: darkred;
-  border:2px solid #4D0D35;
-  color: dimgrey;
   
-}
+  
