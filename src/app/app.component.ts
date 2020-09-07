@@ -6,7 +6,7 @@ import { AuthService } from "./services/auth.service";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angularWithScss';
+  title = 'האתר של תמר ויהודית';
 
   
 }

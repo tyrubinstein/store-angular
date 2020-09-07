@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from 'src/app/model/store';
-import { PrivateAreaService } from 'src/app/private-area.service';
+import { PrivateAreaService } from 'src/app/services/private-area.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Observable } from 'rxjs';
 import { error } from 'protractor';

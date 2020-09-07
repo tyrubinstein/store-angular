@@ -18,4 +18,5 @@ export class SearcCloth {
         CompanyName: string
         ClothCompaniCod: string
         Size:string
+     
 }
