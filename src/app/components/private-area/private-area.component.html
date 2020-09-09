@@ -1,1 +1,45 @@
-<p>private-area works!</p>
+
+
+<div class="container">
+    <div #details>פרטיים אישיים</div>
+    <div class="container2">
+<table>
+    <tbody>
+        <tr>
+            <th><input type="text" name="ManagerName" [(ngModel)]="model.ManagerName"></th>
+            <th>שם מנהל החנות</th>
+            
+        </tr>
+        <tr>
+            <th><input type="text" name="StoreName" [(ngModel)]="model.StoreName"></th>
+            <th>שם החנות</th>
+        </tr>
+        <tr>
+            <th><input type="text" name="cellOftheStore" [(ngModel)]="model.cellOftheStore"></th>
+            <th>טלפון בחנות</th>
+        </tr>
+        <tr>
+            <th><input type="text" name="Cell" [(ngModel)]="model.Cell"></th>
+            <th>טלפון מנהל החנות</th>
+        </tr>
+        <tr>
+            <th><input type="text" name="City" [(ngModel)]="model.City"></th>
+            <th>עיר</th>
+        </tr>
+        <tr>
+            <th><input type="text" name="Address" [(ngModel)]="model.Address"></th>
+            <th>כתובת</th>
+        </tr>
+        <tr>
+            <th><input type="text" name="Email" [(ngModel)]="model.Email"></th>
+            <th>אימייל</th>
+        </tr>
+        <tr>
+            <th><input type="text" name="PasswordUser" [(ngModel)]="model.PasswordUser"></th>
+            <th>סיסמא</th>
+        </tr>
+    </tbody>
+</table>
+</div>
+<input type="button" value="שמור שינויים" (click)="changeDetails()"/>
+</div>

@@ -2,30 +2,38 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FileService } from '../../services/file-service'
 import { Bill } from 'src/app/model/bill';
 import { AuthService } from "../../services/auth.service";
+import { error } from 'protractor';
+import { Inventory } from 'src/app/model/inventory';
+import { InventoryComponent } from '../inventory/inventory.component';
 @Component({
   selector: 'app-my-inventory',
   templateUrl: './my-inventory.component.html',
   styleUrls: ['./my-inventory.component.scss']
 })
 export class MyInventoryComponent implements OnInit {
+ 
   file: File
+  addClothesOpen = false;
   allBills = [];
   allSearchBills = []
   RangeForSearchDate1: Date = null;
   RangeForSearchDate2: Date = null;
   textForButton = "חפש חשבוניות"
-  constructor(private fileservice: FileService,private authservice:AuthService) { }
-  today;
+  myinventory:Inventory[]=[];
+  constructor(private fileservice: FileService, private authservice: AuthService) { }
+
+
   ngOnInit(): void {
-       this.fileservice.getAllBills(this.authservice.getUserId()).subscribe((data: Bill[]) => this.allBills = data, (error) => console.error());
+    this.fileservice.getAllBills(this.authservice.getUserId()).subscribe((data: Bill[]) => this.allBills = data, (error) => console.error());
     console.log(this.allBills)
-    // this.today = new Date();
-    // var dd = String(this.today.getDate()).padStart(2, '0');
-    // var mm = String(this.today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    // var yyyy = this.today.getFullYear();
-    // this.today = mm + '/' + dd + '/' + yyyy;
-    // this.RangeForSearchDate2=this.today;
+    //get inventoryth
+    
+    this.fileservice.GetInventoryById(this.authservice.getUserId()).subscribe(
+      (response:any)=>{this.myinventory=response},
+      (error)=>{; console.log(error)})
   }
+
+
   GetallBills() {
     if (this.textForButton == "הצג את הכל")
       return this.allSearchBills;
@@ -34,7 +42,7 @@ export class MyInventoryComponent implements OnInit {
 
   }
   ButtonClick() {
-    debugger
+
     if (this.RangeForSearchDate1 != null && this.RangeForSearchDate2 != null && this.textForButton == "חפש חשבוניות") {
       this.searchBillsInRange();
       this.textForButton = "הצג את הכל"
@@ -49,7 +57,7 @@ export class MyInventoryComponent implements OnInit {
 
 
   searchBillsInRange() {
-    debugger
+
     this.fileservice.searchByRange(this.RangeForSearchDate1, this.RangeForSearchDate2).subscribe((data: Bill[]) => this.allSearchBills = data, (error) => console.log(error));
   }
   deleteFromArr(path) {//מחיקה מהמערך באנגולר
@@ -65,7 +73,6 @@ export class MyInventoryComponent implements OnInit {
     }
   }
   delete(Deleted: string) {//מחיקת קובץ
-    debugger
     return this.fileservice.deleteFileFromInventory(Deleted).subscribe(
       (response: boolean) => {
         if (response == true) {
@@ -78,32 +85,47 @@ export class MyInventoryComponent implements OnInit {
       })
 
   }
-  //-----------------ניסוי
-  
-  fileToUpload
-  filename
-  OnSubmit() {
-    debugger
-    console.log(this.fileToUpload)
-    this.fileservice.uploadImage( this.fileToUpload).subscribe(
-      data => {
-        console.log('done');
-      }
-    );
+
+  onFileChange(event) {
+
+    let files = event.target.files;
+    if (files.length > 0) {
+      this.saveFiles(files)
+    }
+
   }
-   
+  saveFiles(files) {
+    let formData: FormData = new FormData();
+    formData.append("file[]", files[0], this.authservice.getUserId().toString());
+    var parameters = {
+      storeId: this.authservice.getUserId()
+    }
+    this.fileservice.upload(formData).subscribe(
+      (data: Bill[]) => {
+        this.allBills = data;
+        this.GetallBills();
+        alert("הקובץ הועלה בהצלחה")
+        console.log("success")
 
+      },
+      error => {
 
+        console.log(error)
+      })
 
+  }
+  AddClothes() {
+    this.addClothesOpen = true;
+  }
 
+  get enableCloseAddCloth() {
+    return this.CloseAddClothes.bind(this);
+  }
 
-
-
-
-
-
-
+  CloseAddClothes() {
+ 
+    this.addClothesOpen = false;
   
-  
+  }
 }
 
