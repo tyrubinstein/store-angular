@@ -16,6 +16,7 @@ export class SearcCloth {
         CompanyName: string
         ClothCompaniCod: string
         Size:string
+     
 }
 export class Company {
         CompanyID:number

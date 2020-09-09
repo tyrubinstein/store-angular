@@ -16,9 +16,11 @@ export class FindClothApplicationComponent implements OnInit {
   ngOnInit(): void {
   }
   SearchCloth(){
+    debugger
     this.findclothservice.getAllTHeStoreThatHaveTheCloth(this.SearchClothModel).subscribe(
       (response:StoresThatHaveTheCloth)=>{
-        if (response[0]){
+        debugger
+        if (response[0]!=null){
          this.foundStores=response;
 
         }

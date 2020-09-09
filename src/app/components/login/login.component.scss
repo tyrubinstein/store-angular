@@ -7,8 +7,13 @@ html {
 
 input {
   border: none;
+  direction: rtl;
 }
-
+.alert{
+  direction: rtl;
+padding: 0px;
+color: black;
+}
 button:focus {
   outline: none;
 }
@@ -214,7 +219,7 @@ button:focus {
 }
 
 .ng-invalid.ng-touched:not(form)  {
-  border: 1px solid red;
+  border: 1px solid black;
 }
 
 

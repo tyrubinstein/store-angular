@@ -1,6 +1,6 @@
 <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <div *ngIf="addClothesOpen"><app-inventory   [inventory]="myinventory" [SetSetToClose]="enableCloseAddCloth"></app-inventory></div>
-
+<div *ngIf="!addClothesOpen">
 <div class="container">
   <div class="row">
     <div class="col-md-3" name="textForButton"><button id="btn1" class="button" (click)="ButtonClick()">{{textForButton}}</button></div>
@@ -66,3 +66,4 @@
       </div>
     </div>
   </div>
+</div>

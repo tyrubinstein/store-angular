@@ -2,12 +2,12 @@
 
         
 <input [(ngModel)]="SearchClothModel.ClothCompaniCod" placeholder="קוד הבגד" />
-<input [(ngModel)]="SearchClothModel.Describe" placeholder="תיאור"  />
+<!-- <input [(ngModel)]="SearchClothModel.Describe" placeholder="תיאור"  /> -->
 <input [(ngModel)]="SearchClothModel.CompanyName" placeholder="חברה" />
-<input [(ngModel)]="SearchClothModel.Color" placeholder="צבע"  />
+<!-- <input [(ngModel)]="SearchClothModel.Color" placeholder="צבע"  />
 <input [(ngModel)]="SearchClothModel.Size" placeholder="מידה"  />
-<input type="button" (click)="SearchCloth()">
-
+<input type="button" (click)="SearchCloth()"> -->
+<button (click)="SearchCloth()">חפש</button>
 
   <h2>החנויות שהזמינו את הבגד<small>ממוין לפי מרחק</small></h2>
   <ul *ngFor="let item of getStoresThtHaveTheCloth() let i=index" class="responsive-table">

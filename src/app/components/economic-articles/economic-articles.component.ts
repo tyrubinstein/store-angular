@@ -3,6 +3,8 @@ import { CfLists } from 'src/app/model/cf-lists';
 import { ArticlesService } from 'src/app/services/articles.service';
 import { error } from 'protractor';
 import { Articles } from 'src/app/model/articles';
+import {DomSanitizer} from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-economic-articles',
@@ -16,7 +18,7 @@ export class EconomicArticlesComponent implements OnInit {
   chooserId: number;
   articlesArr: Articles[];
   opened = -1;
-  constructor(private Articleservice: ArticlesService) { }
+  constructor(private sanitizer:DomSanitizer,private Articleservice: ArticlesService) { }
 
   ngOnInit(): void {
     this.Articleservice.getAllArticles().subscribe(
@@ -33,9 +35,8 @@ export class EconomicArticlesComponent implements OnInit {
     this.opened = index
   }
 path(){
-
   let x= this.articlesArr[this.opened].ArticlesPath;
-  // return x;
-  return "C:\Users\מוזסון\Desktop\Angular\store-angular\src\assets\images\WIN_20200505_21_08_25_Pro.jpg"
+  let url= this.sanitizer.bypassSecurityTrustUrl(x); 
+  return url;
 }
 }
