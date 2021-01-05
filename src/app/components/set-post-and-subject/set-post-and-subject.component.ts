@@ -1,15 +1,17 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewEncapsulation } from '@angular/core';
 import { SubjectOfForum } from 'src/app/model/subjectOfForum';
 import { PostService } from 'src/app/services/post.service';
 import { SubjectOfForumService } from 'src/app/services/subjectOfForum.service';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/model/post';
 import { AuthService } from 'src/app/services/auth.service';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-set-post-and-subject',
   templateUrl: './set-post-and-subject.component.html',
-  styleUrls: ['./set-post-and-subject.component.scss']
+  styleUrls: ['./set-post-and-subject.component.scss'],
+ 
 })
 export class SetPostAndSubjectComponent implements OnInit {
 @Input() subjectOrPost:string;

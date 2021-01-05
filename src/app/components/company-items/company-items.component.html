@@ -1,41 +1,42 @@
 <p>ברוכים הבאים לחברת : כאן יהיה שם החברה</p>
 <div class="container">
-    <div class="row">
-      <div class="col-md-3" name="textForButton"><button id="btn1" class="button" (click)="ButtonClick()">חפש</button></div>
+  <div class="row">
+    <div class="col-md-3" name="textForButton"><button id="btn1" class="button" (click)="ButtonClick()">חפש</button>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><input type="number" [(ngModel)]="Year" name="year"> </div>
     <div class="row">
-      <div class="col-md-2"><input type="number" [(ngModel)]="Year" name="year"> </div>     
-      <div class="row">
-        <div class="col-md-2">
-          <select *ngFor="let item of seasons;  let i=index">
+      <div class="col-md-2">
+        <select *ngFor="let item of seasons;  let i=index">
           <option> item.SeasonName </option>
-        </select>   
-      </div>     
-   </div>
- </div>
+        </select>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="head">
-  <button (click)="saveClothes()" >שמור</button>   <button (click)="cancel()">בטל</button>>
-<div class="container">
-   <ul class="responsive-table">
-       <li class="table-header">
-           <div class="col col-7"></div>
-           <div class="col col-1">קוד בגד</div>
-           <div class="col col-2">תאור</div>
-           <div class="col col-3">עונה</div>
-           <div class="col col-4">שנה</div>
-           <div class="col col-5">צבע</div>
-           <div class="col col-6">מידה</div>
-       </li>
-       */פירוט המלאי לחברה לפי שנה או כל השנים ועונה/*
-       <li  *ngFor="let item of inventoryArr;  let i=index"  class="table-row">
-           <div class="col col-1" data-label="קוד בגד">{{item.ClothCompaniCod}}</div>
-           <div class="col col-2" data-label="תאור">{{item.Describe}}</div>
-           <div class="col col-5" data-label="צבע">{{item.Color}}</div>
-           <div class="col col-6" data-label="מידה">{{item.SizesRange}}</div>
-       </li>
-   </ul>
+  <button (click)="saveClothes()">שמור</button> <button (click)="cancel()">בטל</button>>
+  <div class="container">
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-7"></div>
+        <div class="col col-1">קוד בגד</div>
+        <div class="col col-2">תאור</div>
+        <div class="col col-5">צבע</div>
+        <div class="col col-6">מידה</div>
+        <div class="col col-3">עונה</div>
+        <div class="col col-4">שנה</div>
+      </li>
+      */פירוט המלאי לחברה לפי שנה או כל השנים ועונה/*
+      <li *ngFor="let item of inventoryArr;  let i=index" class="table-row">
+        <div class="col col-1" data-label="קוד בגד">{{item.ClothCompaniCod}}</div>
+        <div class="col col-2" data-label="תאור">{{item.Describe}}</div>
+        <div class="col col-5" data-label="צבע">{{item.Color}}</div>
+        <div class="col col-6" data-label="מידה">{{item.SizesRange}}</div>
+        <div class="col col-5" data-label="צבע">{{item.Season}}</div>
+        <div class="col col-6" data-label="מידה">{{item.YearOfProduction}}</div>
+      </li>
+    </ul>
+  </div>
 </div>
-</div>
-    
-    

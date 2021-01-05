@@ -26,11 +26,13 @@ export class CompanyItemsComponent implements OnInit {
   companyId:number;
   constructor(private inventoryService: InventoryService, private authservice: AuthService) {
     this.Year = new Date().getFullYear();
+    this.seasonId = 0;
+    inventoryService.GetListOfClothForCompany(this.companyId, this.Year, this.seasonId).subscribe((data: Cloth[]) =>  this.inventoryArr = data, (error) => console.error());
     inventoryService.getSeasonsOptions().subscribe((data: Season[]) =>  this.seasons = data, (error) => console.error());
    }
   GetInventory(Year:number, seasonId:number): Promise<Cloth[]> {
     let promise = new Promise<Cloth[]>((resolve, reject) => {
-      this.inventoryService.getInventoryOfClothByIdCompanyYearAndSeason(this.companyId, Year, seasonId)    
+      this.inventoryService.GetListOfClothForCompany(this.companyId, Year, seasonId)    
       .toPromise()
         .then(
           res => {

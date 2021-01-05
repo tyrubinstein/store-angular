@@ -1,23 +1,20 @@
 <form #myform="ngForm" (ngSubmit)="submitForm(myform)" name=form>
-
     <div class='bold-line'></div>
     <div class='container'>
       <div class='window'>
         <div class='overlay'></div>
         <div class='content'>
-          <div class='welcome'>ברוכים הבאים</div>
+          <div class='welcome'> ברוכים הבאים למעגל ההצלחה</div>
           <div class='subtitle'>STORES </div>
           <p  *ngIf="tryToSubmit&&!myform.valid" class="alert">לא ניתן לשלוח כל עוד הטופס לא תקין!</p>
-          <label for = 'companyorstor'>חברה  </label>
-          <div class='input-fields'>
-            <input type='text' name=ManagerName required  #myname="ngModel" [(ngModel)]="registermodel.ManagerName" placeholder='שם' class='input-line full-width'/>
+         <input type='text' name=ManagerName required  #myname="ngModel" [(ngModel)]="registermodel.ContactMan" placeholder='שם' class='input-line full-width'/>
             <p class="alert" *ngIf="!myname.valid && myname.touched">!שדה חובה</p>
-            <input type='text' name=StoreName required #mystoreName="ngModel" [(ngModel)]="registermodel.StoreName" placeholder='שם חנות' class='input-line full-width'/>
+            <input type='text' name=CompanyName required #mystoreName="ngModel" [(ngModel)]="registermodel.CompanyName" placeholder='שם חברה' class='input-line full-width'/>
             <p class="alert" *ngIf="!mystoreName.valid && mystoreName.touched">!שדה חובה</p>
-            <input type='string' name=Cell required minlength="9" #myphone="ngModel" [(ngModel)]="registermodel.Cell" placeholder='טלפון' class='input-line full-width'/>
-            <p class="alert" *ngIf="!myphone.valid && myphone.touched">!שדה חובה</p>
-            <p *ngIf="myphone.errors?.minlength">לפחות 9 תווים נדרשים</p>
-            <input type='string' name=cellOftheStore required minlength="9" #storePhone="ngModel" [(ngModel)]="registermodel.cellOftheStore" placeholder='טלפון בחנות' class='input-line full-width'/>
+            <input type='text' name=StoreName required #mycompident="ngModel" [(ngModel)]="registermodel.compnumOM" placeholder='מס עוסק מורשה' class='input-line full-width'/>
+            <p class="alert" *ngIf="!mycompident.valid && mycompident.touched">!שדה חובה</p>
+            <p *ngIf="mycompident.errors?.minlength"> נדרשים 9 תווים</p>
+            <input type='string' name=cellOftheStore required minlength="9" #storePhone="ngModel" [(ngModel)]="registermodel.ContactManCell" placeholder='פלאפון איש קשר ' class='input-line full-width'/>
             <p class="alert" *ngIf="!storePhone.valid && storePhone.touched">!שדה חובה</p>
             <p *ngIf="storePhone.errors?.minlength">לפחות 9 תווים נדרשים</p>
             <input type='string' name=Address required #myaddres="ngModel" [(ngModel)]="registermodel.Address" placeholder='כתובת' class='input-line full-width'/>
@@ -28,11 +25,10 @@
             name=Email required #myemail="ngModel" [(ngModel)]="registermodel.Email" placeholder='מייל' class='input-line full-width'/>
             <p class="alert" *ngIf="!myemail.valid && myemail.touched">!שדה חובה</p>
             <div *ngIf="myemail.hasError('pattern')">Email format should be  <small><b>joe@abc.com</b></small></div>        
-            <input type='password' name=PasswordUser required minlength="6" #mypassword="ngModel" [(ngModel)]="registermodel.PasswordUser" placeholder='סיסמא' class='input-line full-width'/>
+            <input type='password' name=PasswordUser required minlength="6" #mypassword="ngModel" [(ngModel)]="registermodel.Passwordcomp" placeholder='סיסמא' class='input-line full-width'/>
             <p class="alert" *ngIf="!mypassword.valid && mypassword.touched ">!שדה חובה</p>
             <p *ngIf="mypassword.errors?.minlength">לפחות 6 תווים נדרשים</p>
     
-          </div>
           <div><button type="submit"  #submitButton  class='ghost-round full-width'>הרשם</button></div>
         </div>
       </div>

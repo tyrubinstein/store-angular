@@ -25,4 +25,8 @@ export class Company {
         Email :string
         ContactMan  :string
         ContactManCell:string
+        Passwordcomp:string
+        compnumOM:string
+        Cell:string
+        City:number
 }

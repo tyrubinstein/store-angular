@@ -11,10 +11,17 @@ import { AuthService } from '../../services/auth.service'
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  stateOptions: any[];
+  value1: string = "off";
+  value2: number;
+  value3: any;
   formSubmited = false//האם הפורם נשלח
   registermodel:Store=new Store;
   tryToSubmit = false
-  constructor(private registerService: RegisterService, private router: Router, private authService: AuthService) { }
+  constructor(private registerService: RegisterService, 
+    private router: Router, private authService: AuthService) {
+   
+   }
   ngOnInit(): void {
 
   }
@@ -29,7 +36,7 @@ export class RegisterComponent implements OnInit {
           (response:string) => {
             this.formSubmited = true
             if(response!="0"){
-                this.authService.LoginAuth(response);
+                this.authService.LoginAuth(response,'no');
             alert(this.authService.getUserId().toString()+ "הוספת בהצלחה")
             }
           else{

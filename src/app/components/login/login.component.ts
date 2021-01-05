@@ -19,33 +19,58 @@ export class LoginComponent implements OnInit {
 
   }
   @Output() login = new EventEmitter<boolean>();
+  iscompany: boolean;
   loginmodel = new Login("", "");
   tryToSubmit = false;
   wrongPassword = false;
   noUser = false;
   res: string
+  iscomp: string;
   submitForm(f: NgForm) {
     if (f.valid) {
-      
-      this.registerService.isUserExist(this.loginmodel).subscribe(
-        (response: string) => {
-          this.res = response
-          if (parseInt(this.res, 10)) {//אם יש כזה משתמש עם כזאת סיסמא
-            
-            this.authService.LoginAuth(this.res);
-            this.login.emit(true);
-          
-            alert(`welcome${this.authService.getUser()}`)
-          }
-          else if (this.res == "no password") {
-            alert("הסיסמא שגויה");
-            this.loginmodel.PasswordUser = ""
-          }
-          // else {
-          //   this.router.navigate(['register-component'])
+      if (!this.iscompany) {
+        this.registerService.isUserExist(this.loginmodel).subscribe(
+          (response: string) => {
+            this.res = response
+            if (parseInt(this.res, 10)) {//אם יש כזה משתמש עם כזאת סיסמא
 
-          // }
-        }, (error) => console.log(error))
+              this.authService.LoginAuth(this.res, this.iscomp);
+              this.login.emit(true);
+
+              alert(`welcome${this.authService.getUser()}`)
+            }
+            else if (this.res == "no password") {
+              alert("הסיסמא שגויה");
+              this.loginmodel.PasswordUser = ""
+            }
+            // else {
+            //   this.router.navigate(['register-component'])
+
+            // }
+          }, (error) => console.log(error));
+      }
+
+      else {
+        this.registerService.isCompExist(this.loginmodel).subscribe(
+          (response: string) => {
+            this.res = response
+            if (parseInt(this.res, 10)) {//אם יש כזה משתמש עם כזאת סיסמא
+
+              this.authService.LoginAuth(this.res, this.iscomp);
+              this.login.emit(true);
+
+              alert(`welcome${this.authService.getUser()}`)
+            }
+            else if (this.res == "no password") {
+              alert("הסיסמא שגויה");
+              this.loginmodel.PasswordUser = ""
+            }
+            // else {
+            //   this.router.navigate(['register-component'])
+
+            // }
+          }, (error) => console.log(error))
+      }
     }
     else {
 
@@ -54,35 +79,38 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // else {
-  //   this.registerService.IsThePasswordWrong(this.loginmodel).subscribe((respone: Response) => {
-  //     if (response) {//אם הסיסמא שגויה
-  //       this.wrongPassword = true;
-
-  //     }
-  // else {
-  //   this.noUser = true;
-  // }
-
-  //   },
-  //     (error) => console.log(error));
-
-  // }
-
-  // },
-  //   (error) => console.log(error));
 
 
 
-  forgetPassword() {
-    this.registerService.resetPassword(this.loginmodel.Email).subscribe((response: Response) => {
-      if (response) {
-        alert("הסיסמא שלך שונתה בהצלחה ונשלחה למייל");
-      }
-      else {
-        alert("שגיאה בשינוי הסיסמא");
+// else {
+//   this.registerService.IsThePasswordWrong(this.loginmodel).subscribe((respone: Response) => {
+//     if (response) {//אם הסיסמא שגויה
+//       this.wrongPassword = true;
 
-      }
-    })
-  }
+//     }
+// else {
+//   this.noUser = true;
+// }
+
+//   },
+//     (error) => console.log(error));
+
+// }
+
+// },
+//   (error) => console.log(error));
+
+
+
+forgetPassword() {
+  this.registerService.resetPassword(this.loginmodel.Email).subscribe((response: Response) => {
+    if (response) {
+      alert("הסיסמא שלך שונתה בהצלחה ונשלחה למייל");
+    }
+    else {
+      alert("שגיאה בשינוי הסיסמא");
+
+    }
+  })
+}
 }

@@ -1,0 +1,16 @@
+<header *ngIf="isLogged">
+      <nav>
+        <div id="brand">
+          <p><span>...</span></p> 
+        </div>      
+        <ul>
+          <li><a routerLink="/home-page-component" routerLinkActive="active">דף הבית</a></li>
+          <li><a routerLink="/economic-articles-component" routerLinkActive="active">מאמרים כלכליים</a></li>
+          <li *ngIf="!iscompany"><a routerLink="/forum-component" routerLinkActive="active">פורום</a></li>
+          <li *ngIf="!iscompany"><a routerLink="/my-inventory" routerLinkActive="active">המלאי שלך</a></li>
+          <li *ngIf="!iscompany"><a routerLink="/find-cloth-application-component" routerLinkActive="active">יישום </a></li>
+          <li *ngIf="iscompany"><a routerLink="/company-items-component" routerLinkActive="active"> המלאי שלך לחברה</a></li>
+        </ul>
+      </nav>
+    <!-- </div> -->
+  </header>

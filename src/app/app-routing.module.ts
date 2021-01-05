@@ -9,6 +9,9 @@ import { ForumComponent } from './components/forum/forum.component';
 import { MyInventoryComponent } from './components/my-inventory/my-inventory.component';
 import { AuthGuard } from './guard/auth.guard';
 import { PrivateAreaComponent } from './components/private-area/private-area.component';
+import { CompanyItemsComponent } from './components/company-items/company-items.component';
+import { CompRegisterComponent } from './components/comp-register/comp-register.component';
+import { SecondTopMenuComponent } from './components/second-top-menu/second-top-menu.component';
 
 
 const routes: Routes = 
@@ -21,7 +24,9 @@ const routes: Routes =
   { path: 'register-component', component: RegisterComponent },
   { path: 'forum-component', component: ForumComponent  ,canActivate: [AuthGuard]},
   { path: 'private-area-component', component: PrivateAreaComponent ,canActivate: [AuthGuard] },
-
+  { path: 'company-items-component', component: CompanyItemsComponent ,canActivate: [AuthGuard] },
+  { path:'comp-register',  component: CompRegisterComponent ,canActivate: [AuthGuard]},
+  { path:'second-top-menu',  component: SecondTopMenuComponent ,canActivate: [AuthGuard]},
 ];
 
 @NgModule({

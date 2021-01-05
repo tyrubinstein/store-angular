@@ -17,9 +17,10 @@ export class InventoryService {
   getInventory():Observable<Cloth[]>{
     return this.http.get<Cloth[]>(this.url+"/GetInventory" );
   }
-  getInventoryOfClothByIdCompanyYearAndSeason(CompanyId:number,year:number,seasonId:number):Observable<Cloth[]>{
+  GetListOfClothForCompany(CompanyId:number,year:number,seasonId:number):Observable<Cloth[]>{
     return this.http.get<Cloth[]>(this.url+"/GetInventoryForCompany/CompanyId"+CompanyId&&"year"+year&&"seasonId"+ seasonId );
   }
+  
   saveClothes(data:any):Observable<any>{
   return this.http.post(this.url+"/SaveClothes",data);
   }

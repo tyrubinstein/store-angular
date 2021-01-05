@@ -8,7 +8,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class TopMenuComponent implements OnInit {
   isLogged=this.authservice.isAuth();
-  
+  iscompany=this.authservice.iscomp();
+
   // @Input() logged:boolean;
   constructor(private authservice:AuthService) { 
     this.authservice.getLoggedInName.subscribe(name =>this.isLogged=true);
@@ -22,5 +23,6 @@ export class TopMenuComponent implements OnInit {
   LogOut(){
     this.authservice.logout();
     this.isLogged=false;
+    this.iscompany=false;
   }
 }

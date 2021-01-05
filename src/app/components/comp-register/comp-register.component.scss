@@ -3,10 +3,6 @@ body,
 html {
   margin: 0;
   height: 100%;
-}
-
-input {
-  border: none;
   direction: rtl;
 }
 .alert{
@@ -14,6 +10,11 @@ input {
 padding: 0px;
 color: black;
 }
+input {
+  border: none;
+  direction: rtl;
+}
+
 button:focus {
   outline: none;
 }
@@ -29,7 +30,7 @@ button:focus {
 .highlight {
   color: rgba(255, 255, 255, 0.8);
   font-weight: 400;
-  cursor: pointer;
+  cursor:pointer;
   transition: color .2s ease;
 }
 
@@ -46,7 +47,7 @@ button:focus {
   height: 120px;
   font-weight: 300;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 3px;
   color: rgba(255, 255, 255, 0.65)
 }
 
@@ -87,7 +88,7 @@ button:focus {
 .input-line {
   background: none;
   margin-bottom: 10px;
-  line-height: 2.4em;
+  line-height: 1.8em;
   color: #fff;
   font-family: roboto;
   font-weight: 300;
@@ -176,7 +177,7 @@ button:focus {
   flex-flow: column;
   box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-  height: 560px;
+  height: 1000px;
   width: 360px;
   background: #fff;
   // background: url('https://pexels.imgix.net/photos/27718/pexels-photo-27718.jpg?fit=crop&w=1280&h=823') top left no-repeat;
@@ -187,7 +188,7 @@ button:focus {
   background: linear-gradient(#8CA6DB, #B993D6);
   opacity: 0.85;
   filter: alpha(opacity=85);
-  height: 600px;
+  height: 1100px;
   position: absolute;
   width: 360px;
   z-index: 1;
@@ -214,85 +215,10 @@ button:focus {
   }
   .overlay {
     width: 100%;
-    height: 100%;
+    // height: 100%;
   }
 }
 
 .ng-invalid.ng-touched:not(form)  {
   border: 1px solid black;
 }
-
-
-
-/* The container */
-.containercheck {
-  display: block;
-  position: relative;
-  padding-left: 120px;
-  margin-bottom: 14px;
-  cursor: pointer;
-  font-size: 12;
-  text-align: left ;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  color: rgb(54, 120, 207) ;
-}
-
-/* Hide the browser's default checkbox*/ 
-.containercheck input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}/*
-
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: rgb(141, 90, 130);
-}
-
-/* On mouse-over, add a grey background color */
-.containercheck:hover input ~ .checkmark {
-  background-color: rgb(226, 147, 147);
-}
-
-/* When the checkbox is checked, add a blue background */
-.containercheck input:checked ~ .checkmark {
-  background-color:eee;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-.containercheck input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-.containercheck .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-
-

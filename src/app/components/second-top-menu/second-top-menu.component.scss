@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+  }
+  
+  body {
+    font-size: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif "Roboto",'Arial' ;
+    /* font-family:'', , , sans-serif */
+  }
+  
+  header {
+    background: #c58d96;
+    background: -webkit-gradient(linear, left top, right top, from(#4c3c57), to(#c25e6e));
+    background: -o-linear-gradient(left, #4c3c57, #c4a5aa);
+    background: linear-gradient(to right, #4c3c57, #c4a5aa);
+    padding: 10px 0;
+  }
+  
+  .nav {
+  /*   width: 70%; */
+    margin: 0 auto;
+  }
+  #linktoemail{text-decoration: underline;
+  font-size: 18px;}
+  .btn {
+    background-color: #270B36;;
+    padding: 8px 0;
+    text-align: center;
+    width: 85px;
+  }
+  
+  .btn:hover {
+    background: none;
+    border:2px solid #4D0D35;
+    color: #4D0D35;
+  }
+  
+  .sign-up a:hover {
+    color: #270B36;
+  }
+  
+  #brand {
+    margin: 0 20px;
+  }
+  
+  #brand span{
+   font: 30px "Abril Fatface", cursive;
+  }
+  
+  nav {
+    font-style: oblique;
+    color: #ecf0f1;
+    font-size: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center; 
+        -ms-flex-align: center;
+            align-items: center; 
+  }
+  
+  nav ul {
+    margin: 2px;
+    padding:0px;
+  }
+  
+  nav li {
+    display: inline-block;
+  }
+  
+  nav a {
+    color: #ecf0f1;
+    padding: 0px 8px;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    color: #270B36
+  }
+  /* nav a:pre */
+  .sign-up {
+    margin-right: 20px;
+  }
+  
+  @media(max-width: 767px) {
+    nav{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    nav .btn {
+      display: none;
+    }
+  }
+  
+  @media(max-width: 600px) {
+    #brand,
+    nav li {
+      margin-bottom: 5px;
+    }
+  }
+  .searchbar{
+      padding-left: 20%;
+  }

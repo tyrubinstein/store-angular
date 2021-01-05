@@ -13,13 +13,15 @@
                 <app-subject-details  [newSubjectOrPost]="enableOpenPost" [chooserId]="chooserId"></app-subject-details>
             </div>
         </div> 
-
+        <div class="row"> 
+        <div *ngIf="openWritePost" class="set" class="col-md-12 col-lg-12">>
+            <app-set-post-and-subject [GetCurrentId]="enableGetCurrentId" [SetSetToClose]="enableClosePost"  [subjectOrPost]="subjectOrPost"></app-set-post-and-subject>
+        </div>
+    </div>
     </div>
 </div>
 <!-- //פתיחת נושא חדש -->
-<div *ngIf="openWritePost">
-    <app-set-post-and-subject [GetCurrentId]="enableGetCurrentId" [SetSetToClose]="enableClosePost"  [subjectOrPost]="subjectOrPost"></app-set-post-and-subject>
-</div>
+
 <!-- //סיום פתיחת נושא חדש -->
 <!-- (onChangeSubject)="subject.getListOfPostById($event)" -->
 <!-- 

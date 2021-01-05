@@ -25,6 +25,10 @@ import { TimeAgoPipe } from './time-ago.pipe';
 import { PrivateAreaComponent } from './components/private-area/private-area.component';
 import { CompanyItemsComponent } from './components/company-items/company-items.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddclothesComponent } from './components/addclothes/addclothes.component';
+import { CompRegisterComponent } from './components/comp-register/comp-register.component';
+import { SecondTopMenuComponent } from './components/second-top-menu/second-top-menu.component';
 
 
 @NgModule({
@@ -45,11 +49,14 @@ import { InventoryComponent } from './components/inventory/inventory.component';
     TimeAgoPipe,
     PrivateAreaComponent,
     CompanyItemsComponent,
-    InventoryComponent
+    InventoryComponent,
+    AddclothesComponent,
+    CompRegisterComponent,
+    SecondTopMenuComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,HttpClientModule
+    AppRoutingModule,FormsModule,HttpClientModule, BrowserAnimationsModule
   ],
   providers: [RegisterService,AuthGuard,AuthService,PostService,SubjectOfForumService],
   bootstrap: [AppComponent]

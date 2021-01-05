@@ -1,4 +1,5 @@
 <form (ngSubmit)="submitForm(loginForm)" #loginForm="ngForm">
+
   <div class='bold-line'></div>
   <div class='container'>
     <div class='window'>
@@ -6,8 +7,12 @@
       <div class='content'>
         <div class='welcome'>ברוכים הבאים!</div>
         <div class='subtitle'>האתר לחנויות קטנות</div>
-        <a routerLink="/register-component" routerLinkActive="active">עדיין לא רשום? הרשם כאן</a>     
-         <p  *ngIf="tryToSubmit&&!loginForm.valid" class="alert">לא ניתן לשלוח כל עוד הטופס לא תקין!</p>
+        <label class="containercheck"><input type="checkbox" [(ngModel)]="iscompany" name='companyorstor' checked="checked">
+     <span class="checkmark"></span>
+    לחברה סמן כאן
+        </label>
+        <a routerLink="/register-component" routerLinkActive="active">עדיין לא רשום? הרשם כאן</a>
+        <p *ngIf="tryToSubmit&&!loginForm.valid" class="alert">לא ניתן לשלוח כל עוד הטופס לא תקין!</p>
         <div class='input-fields'>
           <input type='email' pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name=Email required
             #myemail="ngModel" [(ngModel)]="loginmodel.Email" placeholder='מייל' class='input-line full-width' />
@@ -20,8 +25,8 @@
           <p *ngIf="mypassword.errors?.minlength">לפחות 6 תווים נדרשים</p>
           <p *ngIf="wrongPassword">הסיסמא שגויה</p>
         </div>
-        <div><button type="submit"  class='ghost-round full-width'>כניסה</button>
-          <input type="button" value="שכחתי סיסמא" class="ghost-round full-width" (click)="forgetPassword()"/>
+        <div><button type="submit" class='ghost-round full-width'>כניסה</button>
+          <input type="button" value="שכחתי סיסמא" class="ghost-round full-width" (click)="forgetPassword()" />
         </div>
       </div>
     </div>
