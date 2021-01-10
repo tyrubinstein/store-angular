@@ -14,7 +14,7 @@ isLogged=this.authservice.isAuth();
        (res)=>{if(res==false)
       this.iscompany = false;
     else
-    this.iscompany = false;});    
+    this.iscompany = true;});    
       this.authservice.getLoggedInName.subscribe(name =>this.isLogged=true);
 
   }

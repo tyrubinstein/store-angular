@@ -25,7 +25,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  gotoCompRegister(){
+this.router.navigate(['comp-register']);
 
+  }
   // addRegister(myname, mystoreName, myphone, storePhone, myaddres, myemail, mypassword, mycity) {
   // }
   submitForm(f: NgForm) {

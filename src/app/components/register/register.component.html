@@ -7,8 +7,8 @@
         <div class='content'>
           <div class='welcome'>ברוכים הבאים</div>
           <div class='subtitle'>STORES </div>
+          <button  class="buttonCo" (click)="gotoCompRegister()"><span>לחברה </span></button>
           <p  *ngIf="tryToSubmit&&!myform.valid" class="alert">לא ניתן לשלוח כל עוד הטופס לא תקין!</p>
-          <label for = 'companyorstor'>חברה  </label>
           <div class='input-fields'>
             <input type='text' name=ManagerName required  #myname="ngModel" [(ngModel)]="registermodel.ManagerName" placeholder='שם' class='input-line full-width'/>
             <p class="alert" *ngIf="!myname.valid && myname.touched">!שדה חובה</p>

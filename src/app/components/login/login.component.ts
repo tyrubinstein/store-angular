@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
               alert("הסיסמא שגויה");
               this.loginmodel.PasswordUser = ""
             }
+            else{ alert("לא קיים שם משתמש זה במערכת");}
             // else {
             //   this.router.navigate(['register-component'])
 
@@ -65,6 +66,7 @@ export class LoginComponent implements OnInit {
               alert("הסיסמא שגויה");
               this.loginmodel.PasswordUser = ""
             }
+            else{ alert("לא קיים שם משתמש זה במערכת");}
             // else {
             //   this.router.navigate(['register-component'])
 

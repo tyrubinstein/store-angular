@@ -25,7 +25,7 @@ const routes: Routes =
   { path: 'forum-component', component: ForumComponent  ,canActivate: [AuthGuard]},
   { path: 'private-area-component', component: PrivateAreaComponent ,canActivate: [AuthGuard] },
   { path: 'company-items-component', component: CompanyItemsComponent ,canActivate: [AuthGuard] },
-  { path:'comp-register',  component: CompRegisterComponent ,canActivate: [AuthGuard]},
+  { path:'comp-register',  component: CompRegisterComponent },
   { path:'second-top-menu',  component: SecondTopMenuComponent ,canActivate: [AuthGuard]},
 ];
 
